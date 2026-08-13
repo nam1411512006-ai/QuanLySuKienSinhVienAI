@@ -185,6 +185,9 @@ CREATE TABLE dangkysukien
 
     ThoiGianDangKy DATETIME DEFAULT CURRENT_TIMESTAMP,
 
+    ThoiGianHuy DATETIME,
+
+    LyDoHuy VARCHAR(255),
 
     TrangThai VARCHAR(30) DEFAULT 'DaDangKy',
 
