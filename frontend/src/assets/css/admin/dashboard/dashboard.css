@@ -1,0 +1,67 @@
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+@import "./statistic-cards.css";
+@import "./chart.css";
+@import "./latest-events.css";
+@import "./notification.css";
+@import "./recent-activity.css";
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.admin-page {
+
+    width: 100%;
+
+}
+
+.admin-page-header {
+
+    margin-bottom: 30px;
+
+}
+
+.admin-page-title {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+.admin-page-subtitle {
+
+    margin-top: 8px;
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+}
+
+.dashboard-bottom {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 30px;
+
+}
+
+@media(max-width:992px) {
+
+    .dashboard-bottom {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

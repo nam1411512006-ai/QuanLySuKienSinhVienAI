@@ -1,0 +1,247 @@
+name: QuanLySuKienSinhVienAI CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+
+jobs:
+
+  # ==========================================================
+  # FRONTEND
+  # ==========================================================
+
+  frontend:
+    name: Frontend - Lint & Build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+
+      # ------------------------------------------------------
+      # CHECKOUT
+      # ------------------------------------------------------
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+
+      # ------------------------------------------------------
+      # NODE.JS
+      # ------------------------------------------------------
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+
+      # ------------------------------------------------------
+      # INSTALL DEPENDENCIES
+      # ------------------------------------------------------
+
+      - name: Install dependencies
+        run: npm ci
+
+
+      # ------------------------------------------------------
+      # ESLINT
+      # ------------------------------------------------------
+
+      - name: Run ESLint
+        run: npm run lint
+
+
+      # ------------------------------------------------------
+      # BUILD
+      # ------------------------------------------------------
+
+      - name: Build React application
+        run: npm run build
+
+
+  # ==========================================================
+  # BACKEND
+  # ==========================================================
+
+  backend:
+    name: Backend - MariaDB & Pytest
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    # --------------------------------------------------------
+    # MARIADB SERVICE
+    # --------------------------------------------------------
+
+    services:
+
+      mariadb:
+        image: mariadb:10.4
+
+        env:
+          MARIADB_ROOT_PASSWORD: root
+          MARIADB_DATABASE: QuanLySuKienSinhVien
+
+        ports:
+          - 3306:3306
+
+        options: >-
+          --health-cmd="mariadb-admin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+
+    steps:
+
+      # ------------------------------------------------------
+      # CHECKOUT
+      # ------------------------------------------------------
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+
+      # ------------------------------------------------------
+      # PYTHON
+      # ------------------------------------------------------
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+
+      # ------------------------------------------------------
+      # INSTALL BACKEND DEPENDENCIES
+      # ------------------------------------------------------
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+      # ------------------------------------------------------
+      # INSTALL MARIADB CLIENT
+      # ------------------------------------------------------
+
+      - name: Install MariaDB client
+        working-directory: .
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mariadb-client
+
+
+      # ------------------------------------------------------
+      # PREPARE DATABASE
+      # ------------------------------------------------------
+
+      - name: Prepare MariaDB database
+        working-directory: .
+        run: |
+          mariadb \
+            -h 127.0.0.1 \
+            -P 3306 \
+            -u root \
+            -proot \
+            -e "CREATE DATABASE IF NOT EXISTS QuanLySuKienSinhVien CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+
+          mariadb \
+            -h 127.0.0.1 \
+            -P 3306 \
+            -u root \
+            -proot \
+            QuanLySuKienSinhVien \
+            < "database/QuanLySuKienSinhVienAI.sql"
+
+
+      # ------------------------------------------------------
+      # VERIFY DATABASE
+      # ------------------------------------------------------
+
+      - name: Check MariaDB database
+        working-directory: .
+        run: |
+          mariadb \
+            -h 127.0.0.1 \
+            -P 3306 \
+            -u root \
+            -proot \
+            -e "USE QuanLySuKienSinhVien; SHOW TABLES;"
+
+
+      # ------------------------------------------------------
+      # CHECK FASTAPI APPLICATION
+      # ------------------------------------------------------
+
+      - name: Check FastAPI application
+        env:
+          DATABASE_HOST: 127.0.0.1
+          DATABASE_PORT: 3306
+          DATABASE_NAME: QuanLySuKienSinhVien
+          DATABASE_USER: root
+          DATABASE_PASSWORD: root
+
+          JWT_SECRET_KEY: ci-test-secret-key
+
+          APP_NAME: QuanLySuKienSinhVienAI
+          APP_ENV: testing
+          DEBUG: "false"
+
+        run: |
+          python -c "from app.main import app; print('FastAPI application import: OK')"
+
+
+      # ------------------------------------------------------
+      # RUN PYTEST + COVERAGE
+      # ------------------------------------------------------
+
+      - name: Run backend tests with coverage
+        env:
+          DATABASE_HOST: 127.0.0.1
+          DATABASE_PORT: 3306
+          DATABASE_NAME: QuanLySuKienSinhVien
+          DATABASE_USER: root
+          DATABASE_PASSWORD: root
+
+          JWT_SECRET_KEY: ci-test-secret-key
+
+          APP_NAME: QuanLySuKienSinhVienAI
+          APP_ENV: testing
+          DEBUG: "false"
+
+        run: |
+          pytest -v \
+            --cov=app \
+            --cov-report=term-missing \
+            --cov-report=xml
+
+
+      # ------------------------------------------------------
+      # UPLOAD COVERAGE
+      # ------------------------------------------------------
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: backend/coverage.xml

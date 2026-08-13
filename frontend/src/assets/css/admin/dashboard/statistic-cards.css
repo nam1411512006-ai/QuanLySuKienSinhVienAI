@@ -1,0 +1,223 @@
+/* =====================================================
+   DASHBOARD STATISTIC CARDS
+===================================================== */
+
+/* ==========================================
+   WRAPPER
+========================================== */
+
+.dashboard-statistic-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 30px;
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.dashboard-statistic-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .35s;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+
+}
+
+.dashboard-statistic-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, .12);
+
+}
+
+/* ==========================================
+   TOP
+========================================== */
+
+.dashboard-statistic-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.dashboard-statistic-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    color: #ffffff;
+
+}
+
+.dashboard-statistic-card.primary .dashboard-statistic-icon {
+
+    background: var(--primary);
+
+}
+
+.dashboard-statistic-card.success .dashboard-statistic-icon {
+
+    background: var(--success);
+
+}
+
+.dashboard-statistic-card.warning .dashboard-statistic-icon {
+
+    background: var(--warning);
+
+}
+
+.dashboard-statistic-card.danger .dashboard-statistic-icon {
+
+    background: var(--danger);
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.dashboard-statistic-title {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+.dashboard-statistic-value {
+
+    margin-top: 12px;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+.dashboard-statistic-desc {
+
+    margin-top: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+}
+
+/* ==========================================
+   BORDER TOP
+========================================== */
+
+.dashboard-statistic-card.primary {
+
+    border-top: 5px solid var(--primary);
+
+}
+
+.dashboard-statistic-card.success {
+
+    border-top: 5px solid var(--success);
+
+}
+
+.dashboard-statistic-card.warning {
+
+    border-top: 5px solid var(--warning);
+
+}
+
+.dashboard-statistic-card.danger {
+
+    border-top: 5px solid var(--danger);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px) {
+
+    .dashboard-statistic-cards {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .dashboard-statistic-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+.dashboard-statistic-content {
+
+    margin-top: 10px;
+
+}
+
+.dashboard-statistic-top svg:last-child {
+
+    color: var(--border-strong);
+
+    transition: .3s;
+
+}
+
+.dashboard-statistic-card:hover .dashboard-statistic-top svg:last-child {
+
+    color: var(--primary);
+
+    transform: translate(4px, -4px);
+
+}

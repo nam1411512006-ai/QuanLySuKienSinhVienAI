@@ -1,0 +1,499 @@
+/* =========================================================
+   EVENT PAGE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.event-page {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 24px 60px;
+}
+
+/* =========================================================
+   BANNER
+   ========================================================= */
+
+.event-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+    border-radius: 24px;
+    padding: 55px;
+    color: #fff;
+    margin-bottom: 35px;
+    box-shadow: 0 18px 45px rgba(37, 99, 235, .22);
+}
+
+.event-banner h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.event-banner p {
+    margin-top: 18px;
+    max-width: 760px;
+    line-height: 1.8;
+    font-size: 17px;
+    opacity: .95;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.event-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+}
+
+.search-icon {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.event-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+.event-search input::placeholder {
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.event-card {
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+
+    box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 48px rgba(15, 23, 42, .16);
+}
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.event-image {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    display: flex;
+}
+
+.event-image img {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 100%;
+    max-width: none;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.08);
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.event-status {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: var(--success);
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(5px);
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.event-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+}
+
+.event-title {
+    color: var(--text);
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    margin-bottom: 22px;
+
+    min-height: 64px;
+}
+
+.event-info {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+    color: var(--text-light);
+
+    font-size: 15px;
+}
+
+.event-info svg {
+    color: var(--primary);
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.event-info span {
+    line-height: 1.6;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.event-footer {
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.event-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--warning);
+
+    font-weight: 700;
+}
+
+.event-score svg {
+    font-size: 18px;
+}
+
+.event-button {
+    border: none;
+    outline: none;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.event-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.event-button:active {
+    transform: scale(.97);
+}
+
+/* =========================================================
+   LOADING - ERROR - EMPTY
+   ========================================================= */
+
+.loading-box,
+.error-box,
+.empty-event {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, .08);
+}
+
+.loading-box {
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.error-box {
+    color: var(--danger);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.empty-event {
+    grid-column: 1 / -1;
+}
+
+.empty-event h3 {
+    margin-bottom: 15px;
+    color: var(--text);
+    font-size: 28px;
+}
+
+.empty-event p {
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+.event-card {
+    animation: fadeUp .45s ease;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================================
+   BUTTON EFFECT
+   ========================================================= */
+
+.event-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.event-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, .22);
+
+    transition: .45s;
+}
+
+.event-button:hover::after {
+    left: 120%;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .event-page {
+        padding: 0 20px 50px;
+    }
+
+    .event-banner {
+        padding: 40px;
+    }
+
+    .event-banner h1 {
+        font-size: 34px;
+    }
+
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:768px) {
+
+    .event-page {
+        padding: 0 15px 40px;
+    }
+
+    .event-banner {
+        padding: 28px;
+        border-radius: 18px;
+    }
+
+    .event-banner h1 {
+        font-size: 28px;
+    }
+
+    .event-banner p {
+        font-size: 15px;
+    }
+
+    .event-search {
+        padding: 15px;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .event-card {
+        min-height: auto;
+    }
+
+    .event-image {
+        height: 200px;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+
+    .event-title {
+        font-size: 20px;
+        min-height: auto;
+    }
+
+    .event-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .event-button {
+        width: 100%;
+        height: 48px;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width:480px) {
+
+    .event-banner {
+        padding: 22px;
+    }
+
+    .event-banner h1 {
+        font-size: 24px;
+    }
+
+    .event-banner p {
+        font-size: 14px;
+    }
+
+    .event-search {
+        gap: 10px;
+    }
+
+    .event-search input {
+        font-size: 15px;
+    }
+
+    .event-status {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+
+    .event-image {
+        height: 180px;
+    }
+
+}

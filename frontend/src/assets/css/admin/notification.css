@@ -1,0 +1,927 @@
+/* ==========================================================
+   NOTIFICATION PAGE
+========================================================== */
+
+.notification-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.notification-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.notification-header-action {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+.notification-header-action .btn {
+
+    min-width: 150px;
+
+}
+
+/* ==========================================================
+   STATISTIC
+========================================================== */
+
+.notification-stat-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+}
+
+.notification-stat-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+    box-shadow: 0 6px 18px rgba(15, 23, 42, .04);
+
+}
+
+.notification-stat-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+
+}
+
+.notification-stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background: var(--primary);
+
+}
+
+.notification-stat-card.success::before {
+
+    background: var(--success);
+
+}
+
+.notification-stat-card.warning::before {
+
+    background: var(--warning);
+
+}
+
+.notification-stat-card.danger::before {
+
+    background: var(--danger);
+
+}
+
+.notification-stat-card .stat-title {
+
+    display: block;
+
+    font-size: 15px;
+
+    color: var(--text-light);
+
+    margin-bottom: 14px;
+
+}
+
+.notification-stat-card h2 {
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 10px;
+
+}
+
+.notification-stat-card p {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.notification-toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+}
+
+.notification-toolbar-left {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.notification-toolbar-right {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.notification-search {
+
+    width: 430px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    transition: .3s;
+
+}
+
+.notification-search:hover {
+
+    border-color: var(--border-strong);
+
+}
+
+.notification-search:focus-within {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+.notification-search svg {
+
+    color: var(--text-light);
+
+    font-size: 18px;
+
+}
+
+.notification-search input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+
+    color: var(--text);
+
+}
+
+.notification-search input::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+/* ==========================================================
+   FILTER
+========================================================== */
+
+.notification-filter {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+}
+
+.notification-filter select {
+
+    width: 190px;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.notification-filter select:hover {
+
+    border-color: var(--border-strong);
+
+}
+
+.notification-filter select:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.notification-toolbar-right .btn {
+
+    min-width: 200px;
+
+    height: 48px;
+
+}
+
+.notification-toolbar-right .btn svg {
+
+    font-size: 18px;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.notification-table-card {
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+.notification-table-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.notification-table-header h3 {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 6px;
+
+}
+
+.notification-table-header p {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.notification-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+.notification-table thead {
+
+    background: var(--primary-50);
+
+}
+
+.notification-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--text-light);
+
+    border-bottom: 1px solid var(--border);
+
+    white-space: nowrap;
+
+}
+
+.notification-table td {
+
+    padding: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+    vertical-align: middle;
+
+}
+
+.notification-table tbody tr {
+
+    transition: .25s;
+
+}
+
+.notification-table tbody tr:hover {
+
+    background: var(--primary-50);
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.notification-table strong {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+/* ==========================================================
+   TYPE BADGE
+========================================================== */
+
+.type-system,
+.type-event,
+.type-training,
+.type-danger {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 110px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.type-system {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.type-event {
+
+    background: var(--primary-light);
+
+    color: var(--primary-hover);
+
+}
+
+.type-training {
+
+    background: var(--success-light);
+
+    color: var(--success);
+
+}
+
+.type-danger {
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.notification-table .status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 105px;
+
+    height: 34px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.notification-table .status.active {
+
+    background: var(--success-light);
+
+    color: var(--success);
+
+}
+
+.notification-table .status.lock {
+
+    background: var(--warning-light);
+
+    color: var(--warning);
+
+}
+
+/* ==========================================================
+   ACTION
+========================================================== */
+
+.notification-table .table-action {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.notification-table .table-view,
+
+.notification-table .table-edit,
+
+.notification-table .table-delete {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.notification-table .table-view {
+
+    background: var(--primary-light);
+
+    color: var(--primary-hover);
+
+}
+
+.notification-table .table-view:hover {
+
+    background: var(--primary-hover);
+
+    color: #ffffff;
+
+}
+
+.notification-table .table-edit {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.notification-table .table-edit:hover {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.notification-table .table-delete {
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+
+}
+
+.notification-table .table-delete:hover {
+
+    background: var(--danger);
+
+    color: #ffffff;
+
+}
+
+/* ==========================================================
+   PAGINATION
+========================================================== */
+
+.notification-pagination-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.notification-pagination-card .pagination-info {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+.notification-pagination-card .pagination-info strong {
+
+    color: var(--text);
+
+    font-weight: 700;
+
+}
+
+.notification-pagination-card .pagination {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.notification-pagination-card .pagination-btn {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--primary-50);
+
+    color: var(--text);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-weight: 600;
+
+}
+
+.notification-pagination-card .pagination-btn:hover:not(:disabled) {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.notification-pagination-card .pagination-btn.active {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.notification-pagination-card .pagination-btn:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px) {
+
+    .notification-stat-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .notification-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .notification-header-action {
+
+        width: 100%;
+
+    }
+
+    .notification-toolbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .notification-toolbar-left {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .notification-search {
+
+        width: 100%;
+
+        max-width: none;
+
+    }
+
+    .notification-filter {
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
+    }
+
+    .notification-filter select {
+
+        flex: 1;
+
+        min-width: 180px;
+
+    }
+
+    .notification-toolbar-right {
+
+        width: 100%;
+
+    }
+
+    .notification-toolbar-right .btn {
+
+        width: 100%;
+
+    }
+
+    .notification-pagination-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .notification-stat-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .notification-table-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+    .notification-table {
+
+        min-width: 1100px;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .notification-filter {
+
+        flex-direction: column;
+
+    }
+
+    .notification-filter select {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.notification-stat-card,
+.notification-toolbar,
+.notification-table-card,
+.notification-pagination-card {
+
+    animation: notificationFade .35s ease;
+
+}
+
+@keyframes notificationFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.notification-table::-webkit-scrollbar {
+
+    height: 8px;
+
+}
+
+.notification-table::-webkit-scrollbar-thumb {
+
+    background: var(--border-strong);
+
+    border-radius: 20px;
+
+}
+
+.notification-table::-webkit-scrollbar-track {
+
+    background: var(--primary-50);
+
+}

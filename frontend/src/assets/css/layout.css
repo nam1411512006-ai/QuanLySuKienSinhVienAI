@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.student-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--background);
+}
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 240px;
+    min-width: 0;
+}
+
+.main-content {
+    flex: 1;
+    padding: 24px;
+    /* Khong can margin-top: Header dung position:sticky nen da tu chiem
+       cho trong luong document flow, cong them margin se tao khoang trong thua */
+}
+
+@media (max-width: 992px) {
+
+    .main-wrapper {
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .main-content {
+        padding: 14px;
+    }
+
+}

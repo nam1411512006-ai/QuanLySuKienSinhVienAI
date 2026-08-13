@@ -1,0 +1,44 @@
+/* =====================================================
+   ADMIN PANEL
+   QuanLySuKienSinhVienAI
+===================================================== */
+
+/* ===========================
+   FOUNDATION (biến màu — chỉ áp dụng trong .admin-layout)
+=========================== */
+
+@import "./variables.css";
+
+/* ===========================
+   CORE
+=========================== */
+
+@import "./layout.css";
+@import "./sidebar.css";
+@import "./header.css";
+
+/* ===========================
+   COMPONENT
+=========================== */
+
+@import "./card.css";
+@import "./button.css";
+@import "./table.css";
+@import "./modal-form.css";
+
+
+
+/* ===========================
+   PAGE
+=========================== */
+
+@import "./dashboard/dashboard.css";
+@import "./account.css";
+@import "./organizer.css";
+@import "./student.css";
+@import "./category.css";
+@import "./event.css";
+@import "./notification.css";
+@import "./report.css";
+@import "./role.css";
+@import "./setting.css";

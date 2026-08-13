@@ -1,0 +1,728 @@
+/* ==========================================================
+   ORGANIZER LAYOUT
+========================================================== */
+
+:root {
+    --primary: #1450B4;
+    --primary-hover: #0F3A87;
+    --accent: #C9973B;
+    --background: #F4F6FA;
+    --white: #ffffff;
+    --text: #1A2332;
+    --text-light: #4B5768;
+    --border: #E2E6ED;
+    --shadow: 0 4px 16px rgba(20, 32, 54, .08), 0 2px 4px rgba(20, 32, 54, .04);
+    --radius: 12px;
+    --font-main: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-main);
+}
+
+/* ==========================================================
+   MAIN LAYOUT
+========================================================== */
+
+.organizer-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--background);
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar {
+
+    width: 260px;
+
+    background: var(--white);
+
+    border-right: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+}
+
+.sidebar-brand {
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.sidebar-brand-logo {
+
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+
+}
+
+.sidebar-brand h2 {
+
+    color: var(--primary);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    max-width: 160px;
+
+}
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+.sidebar a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 6px 14px;
+
+    padding: 14px 18px;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    border-radius: 12px;
+
+    transition: .25s;
+
+    font-weight: 500;
+
+}
+
+.sidebar a svg {
+
+    font-size: 18px;
+
+}
+
+.sidebar a:hover {
+
+    background: var(--primary-50);
+
+    color: var(--primary);
+
+}
+
+.sidebar a.active {
+
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow: 0 8px 18px rgba(37, 99, 235, .25);
+
+}
+
+.sidebar a.active svg {
+
+    color: white;
+
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.content {
+
+    flex: 1;
+
+    margin-left: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+/* ==========================================================
+   TOPBAR
+========================================================== */
+
+.topbar {
+
+    height: 80px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 999;
+
+}
+
+.topbar div {
+
+    font-size: 17px;
+
+    color: var(--text);
+
+}
+
+.topbar b {
+
+    color: var(--primary);
+
+}
+
+/* ==========================================================
+   LOGOUT BUTTON
+========================================================== */
+
+.topbar button {
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    padding: 12px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: .25s;
+
+    font-size: 15px;
+
+}
+
+.topbar button:hover {
+
+    background: var(--primary-hover);
+
+}
+
+/* ==========================================================
+   PAGE CONTENT
+========================================================== */
+
+.page-content {
+
+    flex: 1;
+
+    padding: 30px;
+
+}
+
+/* ==========================================================
+   DASHBOARD CARDS
+========================================================== */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+}
+
+.dashboard-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+
+    transition: .25s;
+
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.dashboard-card h4 {
+
+    color: var(--text-light);
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+}
+
+.dashboard-card h1 {
+
+    color: var(--primary);
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.table-container {
+
+    background: white;
+
+    margin-top: 30px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+table thead {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+table th {
+
+    padding: 16px;
+
+    text-align: left;
+
+}
+
+table td {
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+table tbody tr:hover {
+
+    background: var(--primary-50);
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+    transition: .25s;
+
+    font-weight: 500;
+
+}
+
+.btn-primary {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+.btn-primary:hover {
+
+    background: var(--primary-hover);
+
+}
+
+.btn-warning {
+
+    background: var(--warning);
+
+    color: white;
+
+}
+
+.btn-danger {
+
+    background: var(--danger);
+
+    color: white;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px) {
+
+    .sidebar {
+
+        width: 220px;
+
+    }
+
+    .content {
+
+        margin-left: 220px;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .sidebar {
+
+        display: none;
+
+    }
+
+    .content {
+
+        margin-left: 0;
+
+    }
+
+    .topbar {
+
+        padding: 0 20px;
+
+    }
+
+    .page-content {
+
+        padding: 20px;
+
+    }
+
+}
+/* ==========================================================
+   DASHBOARD - REDESIGN
+========================================================== */
+
+.page-loading {
+
+    padding: 60px;
+    text-align: center;
+    color: var(--text-light);
+
+}
+
+.dashboard-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+
+}
+
+.dashboard-header h2 {
+
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+
+}
+
+.dashboard-subtitle {
+
+    color: var(--text-light);
+    margin-top: 4px;
+    font-size: 14px;
+
+}
+
+.dashboard-cta {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.dashboard-card-icon {
+
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: white;
+
+}
+
+.icon-blue { background: var(--primary); }
+.icon-purple { background: #7c3aed; }
+.icon-green { background: var(--success); }
+.icon-orange { background: var(--warning); }
+
+.dashboard-columns {
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 25px;
+    margin-top: 28px;
+
+}
+
+@media (max-width: 992px) {
+
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.dashboard-panel {
+
+    background: white;
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: var(--shadow);
+
+}
+
+.dashboard-panel h3 {
+
+    font-size: 17px;
+    margin-bottom: 20px;
+    color: var(--text);
+
+}
+
+.dashboard-empty {
+
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px 0;
+
+}
+
+/* Bảng xếp hạng sự kiện */
+
+.ranking-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+}
+
+.ranking-item {
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+}
+
+.ranking-index {
+
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--background);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.ranking-body {
+
+    flex: 1;
+
+}
+
+.ranking-top {
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+
+}
+
+.ranking-name {
+
+    font-weight: 600;
+    color: var(--text);
+
+}
+
+.ranking-count {
+
+    color: var(--text-light);
+
+}
+
+.ranking-bar-track {
+
+    height: 8px;
+    border-radius: 5px;
+    background: var(--background);
+    overflow: hidden;
+
+}
+
+.ranking-bar-fill {
+
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width .4s ease;
+
+}
+
+/* Danh sách sự kiện sắp diễn ra */
+
+.upcoming-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+}
+
+.upcoming-item {
+
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .2s;
+
+}
+
+.upcoming-item:hover {
+
+    border-color: var(--primary);
+    background: var(--primary-50);
+
+}
+
+.upcoming-name {
+
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+
+}
+
+.upcoming-meta {
+
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-light);
+
+}
+
+.upcoming-meta span {
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+}

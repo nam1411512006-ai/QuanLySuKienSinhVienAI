@@ -1,0 +1,29 @@
+/* ==========================================================
+   ADMIN CARD
+========================================================== */
+
+.card {
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    transition: box-shadow var(--transition);
+
+}
+
+.card + .card {
+    margin-top: 24px;
+}
+
+/* Card dung lam khung bao quanh bang du lieu - bo padding ngang
+   de bang chiem full be rong, giu padding doc cho tieu de */
+.admin-page .card:has(table) {
+    padding: 24px 0;
+}
+
+.admin-page .card:has(table) > *:not(.table-container) {
+    padding-left: 24px;
+    padding-right: 24px;
+}

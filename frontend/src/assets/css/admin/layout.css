@@ -1,0 +1,349 @@
+/* ==========================================================
+   ADMIN LAYOUT
+========================================================== */
+
+/* ===============================
+   BODY
+================================ */
+
+body {
+
+    background: var(--body);
+
+    overflow-x: hidden;
+
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.admin-layout {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    background: var(--body);
+
+}
+
+/* ===============================
+   RIGHT SIDE
+================================ */
+
+.admin-main {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-left: 280px;
+
+    width: calc(100% - 280px);
+
+    min-height: 100vh;
+
+    transition: .3s;
+
+    background: var(--body);
+
+}
+
+/* ===============================
+   CONTENT
+================================ */
+
+.admin-content {
+
+    flex: 1;
+
+    margin-top: 80px;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+
+    background: var(--body);
+
+}
+
+
+
+/* ===============================
+   PAGE
+================================ */
+
+.admin-page {
+
+    width: 100%;
+
+    animation: pageFade .35s ease;
+
+}
+
+/* ===============================
+   PAGE HEADER
+================================ */
+
+.admin-page-header {
+
+    margin-bottom: 30px;
+
+}
+
+.admin-page-title {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+.admin-page-subtitle {
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    color: var(--text-light);
+
+}
+
+/* ===============================
+   GRID
+================================ */
+
+.admin-grid {
+
+    display: grid;
+
+    gap: 24px;
+
+}
+
+.admin-grid-2 {
+
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.admin-grid-3 {
+
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.admin-grid-4 {
+
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+/* ===============================
+   FLEX
+================================ */
+
+.admin-flex {
+
+    display: flex;
+
+}
+
+.admin-between {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.admin-center {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.admin-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+/* ===============================
+   GAP
+================================ */
+
+.gap-10 {
+
+    gap: 10px;
+
+}
+
+.gap-15 {
+
+    gap: 15px;
+
+}
+
+.gap-20 {
+
+    gap: 20px;
+
+}
+
+.gap-24 {
+
+    gap: 24px;
+
+}
+
+.gap-30 {
+
+    gap: 30px;
+
+}
+
+/* ===============================
+   MARGIN
+================================ */
+
+.mt-20 {
+
+    margin-top: 20px;
+
+}
+
+.mt-30 {
+
+    margin-top: 30px;
+
+}
+
+.mb-20 {
+
+    margin-bottom: 20px;
+
+}
+
+.mb-30 {
+
+    margin-bottom: 30px;
+
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+
+@keyframes pageFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1200px) {
+
+    .admin-main {
+
+        margin-left: 250px;
+
+        width: calc(100% - 250px);
+
+    }
+
+    .admin-grid-4 {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .admin-main {
+
+        margin-left: 0;
+
+        width: 100%;
+
+    }
+
+    .admin-grid-3,
+
+    .admin-grid-2 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .admin-content {
+
+        margin-top: 70px;
+
+        padding: 20px;
+
+    }
+
+    .admin-page-title {
+
+        font-size: 28px;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .admin-content {
+
+        margin-top: 70px;
+
+        padding: 15px;
+
+    }
+
+    .admin-grid-4 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

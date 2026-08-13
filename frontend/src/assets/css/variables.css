@@ -1,0 +1,78 @@
+/* ==========================================================
+   BETU EVENT ADMIN DESIGN SYSTEM
+========================================================== */
+
+.admin-layout {
+
+    /* ================= PRIMARY ================= */
+
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+
+    /* ================= SUCCESS ================= */
+
+    --success: #10b981;
+    --success-light: #dcfce7;
+
+    /* ================= WARNING ================= */
+
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+
+    /* ================= DANGER ================= */
+
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+
+    /* ================= INFO ================= */
+
+    --info: #06b6d4;
+    --info-light: #cffafe;
+
+    /* ================= TEXT ================= */
+
+    --text: #1f2937;
+    --text-light: #64748b;
+    --text-muted: #94a3b8;
+
+    /* ================= BG ================= */
+
+    --body: #f5f7fb;
+
+    --card: #ffffff;
+
+    --sidebar: #ffffff;
+
+    --header: #ffffff;
+
+    /* ================= BORDER ================= */
+
+    --border: #e5e7eb;
+
+    /* ================= SHADOW ================= */
+
+    --shadow-sm:
+        0 3px 10px rgba(0, 0, 0, .04);
+
+    --shadow:
+
+        0 10px 25px rgba(0, 0, 0, .06);
+
+    --shadow-lg:
+
+        0 20px 40px rgba(0, 0, 0, .08);
+
+    /* ================= RADIUS ================= */
+
+    --radius-sm: 8px;
+
+    --radius: 16px;
+
+    --radius-lg: 24px;
+
+    /* ================= TRANSITION ================= */
+
+    --transition: .3s;
+
+}

@@ -1,0 +1,81 @@
+/* ==========================
+   HOME PAGE
+========================== */
+
+.home-container {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.home-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.section-title::before {
+    content: "";
+    width: 6px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--primary);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.home-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 35px;
+    margin-top: 50px;
+    align-items: start;
+}
+
+.notification-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+@media (max-width:992px) {
+
+    .home-container {
+        padding: 24px;
+    }
+
+    .home-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .home-container {
+        padding: 18px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

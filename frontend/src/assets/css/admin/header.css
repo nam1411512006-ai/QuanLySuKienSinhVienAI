@@ -1,0 +1,680 @@
+/* ==========================================================
+   ADMIN HEADER
+========================================================== */
+
+/* ===============================
+   HEADER
+================================ */
+
+.admin-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 280px;
+
+    width: calc(100% - 280px);
+
+    height: 80px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+
+}
+
+/* ===============================
+   LEFT
+================================ */
+
+.admin-header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    height: 100%;
+
+}
+
+/* ===============================
+   MENU BUTTON
+================================ */
+
+.header-menu-btn {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: var(--primary-50);
+
+    color: var(--text);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    transition: var(--transition);
+
+}
+
+.header-menu-btn:hover {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+/* Chỉ có tác dụng khi sidebar có thể ẩn/hiện (mobile, tablet) */
+@media (min-width: 993px) {
+
+    .header-menu-btn {
+        display: none;
+    }
+
+}
+
+/* ===============================
+   SEARCH
+================================ */
+
+.header-search {
+
+    width: 360px;
+
+    height: 48px;
+
+    background: var(--primary-50);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    transition: var(--transition);
+
+}
+
+.header-search:focus-within {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+.header-search svg {
+
+    color: var(--text-muted);
+
+    font-size: 18px;
+
+}
+
+.header-search input {
+
+    flex: 1;
+
+    margin-left: 12px;
+
+    background: transparent;
+
+    font-size: 15px;
+
+}
+
+.header-search input::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+/* ==========================================================
+   HEADER RIGHT
+========================================================== */
+
+.admin-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 16px;
+
+    height: 100%;
+
+}
+
+/* ===============================
+   ACTION BUTTON
+================================ */
+
+.header-action {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: var(--primary-50);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    color: var(--text);
+
+    transition: var(--transition);
+
+}
+
+.header-action:hover {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+}
+
+/* ===============================
+   ICON
+================================ */
+
+.header-action svg {
+
+    font-size: 20px;
+
+}
+
+/* ===============================
+   BADGE
+================================ */
+
+.header-badge {
+
+    position: absolute;
+
+    top: 6px;
+
+    right: 6px;
+
+    min-width: 18px;
+
+    height: 18px;
+
+    padding: 0 5px;
+
+    border-radius: 30px;
+
+    background: var(--danger);
+
+    color: #ffffff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    border: 2px solid #ffffff;
+
+}
+
+/* ==========================================================
+   USER
+========================================================== */
+
+.header-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding-left: 20px;
+
+    margin-left: 10px;
+
+    border-left: 1px solid var(--border);
+
+    cursor: pointer;
+
+    position: relative;
+
+    height: 80px;
+
+}
+
+.header-user img {
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    transition: .3s;
+
+}
+
+.header-user:hover img {
+
+    transform: scale(1.08);
+
+}
+
+.header-user h4 {
+
+    font-size: 15px;
+
+    color: var(--text);
+
+    margin: 0;
+
+}
+
+.header-user span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+}
+
+.header-user>svg {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+.header-user-wrap {
+
+    display: flex;
+    align-items: center;
+
+}
+
+/* ================= AVATAR + NÚT ĐỔI ẢNH ================= */
+
+.header-avatar-wrap {
+
+    position: relative;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+}
+
+.header-avatar-wrap img {
+
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.header-avatar-camera {
+
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: var(--transition);
+
+}
+
+.header-avatar-camera:hover {
+    background: var(--primary-hover);
+}
+
+.header-avatar-camera:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   DROPDOWN
+========================================================== */
+
+.header-dropdown {
+
+    position: absolute;
+
+    top: 85px;
+
+    right: 0;
+
+    width: 230px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-lg);
+
+    animation: dropdownShow .25s ease;
+
+    z-index: 9999;
+
+}
+
+.header-dropdown button {
+
+    width: 100%;
+
+    height: 54px;
+
+    padding: 0 20px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    transition: var(--transition);
+
+}
+
+.header-dropdown button:hover {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.header-dropdown button svg {
+
+    font-size: 18px;
+
+}
+
+/* ==========================================================
+   DROPDOWN ANIMATION
+========================================================== */
+
+@keyframes dropdownShow {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   HOVER EFFECT
+========================================================== */
+
+.header-action::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 14px;
+
+    transition: .3s;
+
+    opacity: 0;
+
+}
+
+.header-action:hover::after {
+
+    opacity: 1;
+
+    box-shadow: 0 10px 25px rgba(37, 99, 235, .15);
+
+}
+
+/* ==========================================================
+   USER EFFECT
+========================================================== */
+
+.header-user {
+
+    transition: var(--transition);
+
+}
+
+.header-user:hover {
+
+    color: var(--primary);
+
+}
+
+.header-user:hover h4 {
+
+    color: var(--primary);
+
+}
+
+/* ==========================================================
+   SEARCH EFFECT
+========================================================== */
+
+.header-search {
+
+    transition: all .3s ease;
+
+}
+
+.header-search:hover {
+
+    border-color: var(--border-strong);
+
+}
+
+/* ==========================================================
+   STICKY SHADOW
+========================================================== */
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:1200px) {
+
+    .admin-header {
+
+        left: 250px;
+
+        width: calc(100% - 250px);
+
+    }
+
+    .header-search {
+
+        width: 260px;
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .admin-header {
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 0 20px;
+
+    }
+
+    .header-search {
+
+        display: none;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .admin-header {
+
+        left: 0;
+
+        width: 100%;
+
+        height: 70px;
+
+        padding: 0 15px;
+
+    }
+
+    .header-user div {
+
+        display: none;
+
+    }
+
+    .header-user {
+
+        border-left: none;
+
+        padding-left: 0;
+
+        margin-left: 0;
+
+    }
+
+    .header-action {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .admin-header-right {
+
+        gap: 8px;
+
+    }
+
+    .header-dropdown {
+
+        width: 210px;
+
+        right: -10px;
+
+    }
+
+}
+
+/* ==========================================================
+   SMALL DEVICES
+========================================================== */
+
+@media(max-width:420px) {
+
+    .header-menu-btn {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+    .header-action {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+}

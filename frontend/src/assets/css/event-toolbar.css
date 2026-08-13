@@ -1,0 +1,197 @@
+.thanh-cong-cu {
+
+    background: #fff;
+
+    border-radius: 22px;
+
+    padding: 22px 28px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, .06);
+
+}
+
+.toolbar-trai {
+
+    flex: 1 1 260px;
+
+    min-width: 0;
+
+}
+
+.toolbar-trai h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 6px;
+
+    color: var(--text);
+
+}
+
+.toolbar-trai span {
+
+    color: var(--text-light);
+
+}
+
+.toolbar-phai {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+.toolbar-search {
+
+    width: 320px;
+
+    max-width: 100%;
+
+    flex: 1 1 220px;
+
+    height: 48px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    gap: 12px;
+
+}
+
+.toolbar-search svg {
+
+    color: var(--text-light);
+
+}
+
+.toolbar-search input {
+
+    border: none;
+
+    outline: none;
+
+    flex: 1;
+
+    font-size: 15px;
+
+}
+
+.toolbar-phai select {
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    padding: 0 15px;
+
+}
+
+.toolbar-view {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.toolbar-view button {
+
+    width: 46px;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--primary-50);
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.toolbar-view button.active {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+.toolbar-view button:hover {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+@media(max-width:992px) {
+
+    .thanh-cong-cu {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .toolbar-phai {
+
+        flex-wrap: wrap;
+
+    }
+
+    .toolbar-search {
+
+        width: 100%;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .toolbar-phai {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .toolbar-phai select {
+
+        width: 100%;
+
+    }
+
+}

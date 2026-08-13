@@ -1,0 +1,1323 @@
+/* =====================================================
+   NOTIFICATION PAGE
+===================================================== */
+
+.notification-page {
+
+    width: 100%;
+
+    min-height: 100%;
+
+    padding: 30px;
+
+    background: var(--primary-50);
+
+}
+
+
+
+/* =====================================================
+   HEADER PAGE
+===================================================== */
+
+
+.notification-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.notification-header h2 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+
+
+.notification-header p {
+
+    margin: 8px 0 0;
+
+    color: var(--text-light);
+
+}
+
+
+
+.notification-header strong {
+
+    color: var(--primary);
+
+}
+
+
+
+/* BUTTON MARK ALL */
+
+
+.mark-read-btn {
+
+    height: 42px;
+
+    padding: 0 20px;
+
+
+    border: none;
+
+    border-radius: 12px;
+
+
+    background: var(--primary);
+
+    color: white;
+
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+
+    transition: .3s;
+
+}
+
+
+
+.mark-read-btn:hover {
+
+    background: var(--primary-hover);
+
+}
+
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+
+.notification-toolbar {
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.notification-filter {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+
+.notification-filter button {
+
+    padding: 10px 20px;
+
+
+    border: none;
+
+
+    border-radius: 999px;
+
+
+    background: var(--border);
+
+
+    color: var(--text-light);
+
+
+    font-weight: 600;
+
+
+    cursor: pointer;
+
+
+    transition: .3s;
+
+}
+
+
+
+.notification-filter button:hover {
+
+    background: var(--border-strong);
+
+}
+
+
+
+.notification-filter button.active {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+
+
+
+/* =====================================================
+   GROUP
+===================================================== */
+
+
+.notification-group {
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.notification-group-title {
+
+    margin-bottom: 15px;
+
+
+    font-size: 20px;
+
+
+    color: var(--text);
+
+
+    font-weight: 700;
+
+}
+
+
+
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+
+.notification-card {
+
+
+    width: 100%;
+
+
+    display: flex;
+
+
+    gap: 18px;
+
+
+    align-items: flex-start;
+
+
+    padding: 22px;
+
+
+    margin-bottom: 16px;
+
+
+    background: white;
+
+
+    border-radius: 20px;
+
+
+    border: 1px solid var(--border);
+
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, .08);
+
+
+    transition: .3s;
+
+
+}
+
+
+
+.notification-card:hover {
+
+
+    transform: translateY(-3px);
+
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, .12);
+
+
+}
+
+
+
+.notification-card.unread {
+
+
+    border-left: 5px solid var(--primary);
+
+
+    background: var(--primary-50);
+
+
+}
+
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+
+.notification-icon {
+
+
+    width: 58px;
+
+
+    height: 58px;
+
+
+    border-radius: 16px;
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    flex-shrink: 0;
+
+
+    font-size: 22px;
+
+
+    color: white;
+
+
+}
+
+
+
+.notification-icon.sukien {
+
+
+    background: var(--primary);
+
+}
+
+
+
+.notification-icon.diemdanh {
+
+
+    background: var(--success);
+
+}
+
+
+
+.notification-icon.thongbao {
+
+
+    background: var(--warning);
+
+}
+
+
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+
+.notification-content {
+
+
+    flex: 1;
+
+
+}
+
+
+
+.notification-header-row {
+
+
+    display: flex;
+
+
+    justify-content: space-between;
+
+
+    align-items: flex-start;
+
+
+    gap: 15px;
+
+
+}
+
+
+
+.notification-header-row h4 {
+
+
+    margin: 0;
+
+
+    font-size: 18px;
+
+
+    color: var(--text);
+
+
+}
+
+
+
+.notification-time {
+
+
+    font-size: 13px;
+
+
+    color: var(--text-muted);
+
+
+    white-space: nowrap;
+
+
+}
+
+
+
+.notification-content p {
+
+
+    margin: 15px 0;
+
+
+    color: var(--text-light);
+
+
+    line-height: 1.6;
+
+
+}
+
+
+
+/* =====================================================
+   NEW BADGE
+===================================================== */
+
+
+.notification-badge {
+
+
+    display: inline-flex;
+
+
+    align-items: center;
+
+
+    padding: 4px 10px;
+
+
+    margin-top: 8px;
+
+
+    border-radius: 999px;
+
+
+    background: var(--danger);
+
+
+    color: white;
+
+
+    font-size: 11px;
+
+
+    font-weight: 700;
+
+
+}
+
+
+
+
+
+/* =====================================================
+   DETAIL BUTTON
+===================================================== */
+
+
+.notification-detail-btn {
+
+
+    margin-top: 15px;
+
+
+    display: inline-flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    gap: 8px;
+
+
+    min-width: 140px;
+
+
+    height: 42px;
+
+
+    padding: 0 20px;
+
+
+    border: none;
+
+
+    border-radius: 10px;
+
+
+    background: var(--primary);
+
+
+    color: white;
+
+
+    font-weight: 600;
+
+
+    cursor: pointer;
+
+
+    white-space: nowrap;
+
+
+    transition: .3s;
+
+
+}
+
+
+
+.notification-detail-btn:hover {
+
+
+    background: var(--primary-hover);
+
+
+    transform: translateX(4px);
+
+
+}
+
+/* =====================================================
+   HEADER NOTIFICATION BUTTON
+===================================================== */
+
+
+.notification-wrapper {
+
+    position: relative;
+
+}
+
+
+
+.header-notification-btn {
+
+
+    position: relative;
+
+
+    width: 42px;
+
+
+    height: 42px;
+
+
+    border: none;
+
+
+    border-radius: 50%;
+
+
+    background: transparent;
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    cursor: pointer;
+
+
+    font-size: 20px;
+
+
+    color: var(--text-light);
+
+
+    transition: .3s;
+
+
+}
+
+
+
+.header-notification-btn:hover {
+
+
+    background: var(--primary-50);
+
+
+    color: var(--primary);
+
+
+}
+
+
+
+
+
+/* =====================================================
+   HEADER BADGE
+===================================================== */
+
+
+.header-notification-badge {
+
+
+    position: absolute;
+
+
+    top: -4px;
+
+
+    right: -4px;
+
+
+    min-width: 20px;
+
+
+    height: 20px;
+
+
+    padding: 0 5px;
+
+
+    border-radius: 50%;
+
+
+    background: var(--danger);
+
+
+    color: white;
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    font-size: 11px;
+
+
+    font-weight: 700;
+
+
+    border: 2px solid white;
+
+
+}
+
+
+
+
+/* =====================================================
+   DROPDOWN THÔNG BÁO HEADER
+===================================================== */
+
+
+.notification-dropdown {
+
+
+    position: absolute;
+
+
+    top: 55px;
+
+
+    right: 0;
+
+
+    width: 380px;
+
+
+    max-height: 450px;
+
+
+    background: white;
+
+
+    border-radius: 18px;
+
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .18);
+
+
+    overflow: hidden;
+
+
+    overflow-y: auto;
+
+
+    z-index: 9999;
+
+
+}
+
+
+
+/* SCROLL */
+
+
+.notification-dropdown::-webkit-scrollbar {
+
+
+    width: 6px;
+
+
+}
+
+
+
+.notification-dropdown::-webkit-scrollbar-thumb {
+
+
+    background: var(--border-strong);
+
+
+    border-radius: 10px;
+
+
+}
+
+
+
+
+
+/* HEADER DROPDOWN */
+
+
+.dropdown-header {
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: space-between;
+
+
+    padding: 18px 20px;
+
+
+    border-bottom: 1px solid var(--border);
+
+
+    background: white;
+
+
+    position: sticky;
+
+
+    top: 0;
+
+
+    z-index: 2;
+
+
+}
+
+
+
+.dropdown-header h4 {
+
+
+    margin: 0;
+
+
+    font-size: 16px;
+
+
+    color: var(--text);
+
+
+}
+
+
+
+.dropdown-header button {
+
+
+    border: none;
+
+
+    background: none;
+
+
+    color: var(--primary);
+
+
+    font-size: 13px;
+
+
+    font-weight: 600;
+
+
+    cursor: pointer;
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ITEM DROPDOWN
+===================================================== */
+
+
+.dropdown-item {
+
+
+    display: flex;
+
+
+    gap: 14px;
+
+
+    padding: 15px 18px;
+
+
+    cursor: pointer;
+
+
+    transition: .25s;
+
+
+}
+
+
+
+.dropdown-item:hover {
+
+
+    background: var(--primary-50);
+
+
+}
+
+
+
+.dropdown-item.new {
+
+
+    background: var(--primary-50);
+
+
+}
+
+
+
+
+.dropdown-icon {
+
+
+    width: 42px;
+
+
+    height: 42px;
+
+
+    border-radius: 12px;
+
+
+    background: var(--primary);
+
+
+    color: white;
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    flex-shrink: 0;
+
+
+}
+
+
+
+
+
+.dropdown-content {
+
+
+    flex: 1;
+
+
+    min-width: 0;
+
+
+}
+
+
+
+.dropdown-content h5 {
+
+
+    margin: 0 0 5px;
+
+
+    font-size: 14px;
+
+
+    color: var(--text);
+
+
+    font-weight: 600;
+
+
+}
+
+
+
+.dropdown-content p {
+
+
+    margin: 0;
+
+
+    font-size: 13px;
+
+
+    color: var(--text-light);
+
+
+    line-height: 1.4;
+
+
+
+
+    overflow: hidden;
+
+
+    text-overflow: ellipsis;
+
+
+    display: -webkit-box;
+
+
+    -webkit-line-clamp: 2;
+
+
+    -webkit-box-orient: vertical;
+
+
+}
+
+
+
+.dropdown-content span {
+
+
+    display: block;
+
+
+    margin-top: 5px;
+
+
+    font-size: 11px;
+
+
+    color: var(--text-muted);
+
+
+}
+
+
+
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+
+.dropdown-empty {
+
+
+    padding: 35px 20px;
+
+
+    text-align: center;
+
+
+    color: var(--text-light);
+
+
+    font-size: 14px;
+
+
+}
+
+
+
+
+
+/* =====================================================
+   LOADING / EMPTY PAGE
+===================================================== */
+
+
+.empty-notification {
+
+
+    background: white;
+
+
+    border-radius: 20px;
+
+
+    padding: 50px;
+
+
+    text-align: center;
+
+
+    color: var(--text-light);
+
+
+    box-shadow:
+        0 8px 22px rgba(15, 23, 42, .08);
+
+
+}
+
+
+
+.empty-notification h3 {
+
+
+    margin-bottom: 10px;
+
+
+    color: var(--text);
+
+
+}
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:1024px) {
+
+
+    .notification-page {
+
+
+        padding: 20px;
+
+
+    }
+
+
+
+}
+
+
+
+@media(max-width:768px) {
+
+
+    .notification-header {
+
+
+        flex-direction: column;
+
+
+        align-items: flex-start;
+
+
+        gap: 15px;
+
+
+    }
+
+
+
+    .notification-card {
+
+
+        flex-direction: column;
+
+
+    }
+
+
+
+    .notification-header-row {
+
+
+        flex-direction: column;
+
+
+        gap: 8px;
+
+
+    }
+
+
+
+    .notification-time {
+
+
+        white-space: normal;
+
+
+    }
+
+
+
+    .notification-detail-btn {
+
+
+        width: 100%;
+
+
+    }
+
+
+
+    .notification-dropdown {
+
+
+        width: 320px;
+
+
+        right: -100px;
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:480px) {
+
+
+    .notification-page {
+
+
+        padding: 15px;
+
+
+    }
+
+
+
+    .notification-header h2 {
+
+
+        font-size: 22px;
+
+
+    }
+
+
+
+    .notification-filter {
+
+
+        flex-wrap: wrap;
+
+
+    }
+
+
+
+    .notification-dropdown {
+
+
+        width: 280px;
+
+
+        right: -120px;
+
+
+    }
+
+
+}
+
+/* =====================================================
+   CHI TIẾT THÔNG BÁO
+===================================================== */
+
+
+.notification-detail-card {
+
+
+    margin-top: 30px;
+
+
+    background: white;
+
+
+    border-radius: 22px;
+
+
+    padding: 35px;
+
+
+    display: flex;
+
+
+    gap: 25px;
+
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .1);
+
+
+}
+
+
+
+.notification-detail-card h2 {
+
+
+    margin: 0 0 20px;
+
+
+    color: var(--text);
+
+
+}
+
+
+
+.detail-content {
+
+
+    font-size: 16px;
+
+
+    color: var(--text-light);
+
+
+    line-height: 1.8;
+
+
+}
+
+
+
+.detail-info {
+
+
+    margin-top: 25px;
+
+
+    padding-top: 20px;
+
+
+    border-top: 1px solid var(--border);
+
+
+}
+
+
+
+.detail-info p {
+
+
+    color: var(--text-light);
+
+
+}
+
+
+
+.detail-info strong {
+
+
+    margin-left: 8px;
+
+
+    color: var(--text);
+
+
+}

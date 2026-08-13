@@ -1,0 +1,271 @@
+/* ==========================================================
+   BỘ LỌC SỰ KIỆN
+========================================================== */
+
+.bo-loc-su-kien {
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, .08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    position: sticky;
+
+    top: 25px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.tieu-de-bo-loc {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.tieu-de-bo-loc svg {
+
+    font-size: 22px;
+
+    color: var(--primary);
+
+}
+
+.tieu-de-bo-loc h3 {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+/* ==========================================================
+   NHÓM
+========================================================== */
+
+.nhom-bo-loc {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.nhom-bo-loc label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+}
+
+.nhom-bo-loc label svg {
+
+    color: var(--primary);
+
+}
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.nhom-bo-loc input[type="text"],
+
+.nhom-bo-loc select {
+
+    height: 48px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 0 15px;
+
+    font-size: 15px;
+
+    transition: .25s;
+
+    outline: none;
+
+    background: #fff;
+
+}
+
+.nhom-bo-loc input[type="text"]:focus,
+
+.nhom-bo-loc select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+
+}
+
+/* ==========================================================
+   RANGE
+========================================================== */
+
+.nhom-bo-loc input[type="range"] {
+
+    width: 100%;
+
+    cursor: pointer;
+
+}
+
+.gia-tri-diem {
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+.gia-tri-diem strong {
+
+    color: var(--primary);
+
+    font-size: 16px;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.nut-xoa-bo-loc {
+
+    margin-top: 10px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.nut-xoa-bo-loc:hover {
+
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.nhom-bo-loc input,
+
+.nhom-bo-loc select {
+
+    transition: .25s;
+
+}
+
+.nhom-bo-loc input:hover,
+
+.nhom-bo-loc select:hover {
+
+    border-color: var(--primary-light);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px) {
+
+    .bo-loc-su-kien {
+
+        position: relative;
+
+        top: 0;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .bo-loc-su-kien {
+
+        padding: 22px;
+
+        border-radius: 20px;
+
+    }
+
+    .tieu-de-bo-loc h3 {
+
+        font-size: 20px;
+
+    }
+
+}
+
+@media(max-width:480px) {
+
+    .bo-loc-su-kien {
+
+        padding: 18px;
+
+    }
+
+}

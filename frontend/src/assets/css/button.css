@@ -1,0 +1,74 @@
+/* ==========================================================
+   ADMIN BUTTONS
+========================================================== */
+
+.admin-layout .btn {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: inherit;
+    white-space: nowrap;
+
+}
+
+.admin-layout .btn svg {
+    font-size: 15px;
+}
+
+.admin-layout .btn-primary {
+
+    background: var(--primary);
+    color: #fff;
+
+}
+
+.admin-layout .btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.admin-layout .btn-outline {
+
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+
+}
+
+.admin-layout .btn-outline:hover {
+    background: var(--body);
+    border-color: var(--text-muted);
+}
+
+.admin-layout .btn-danger {
+
+    background: var(--danger);
+    color: #fff;
+
+}
+
+.admin-layout .btn-danger:hover {
+    opacity: .9;
+}
+
+.admin-layout .btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+
+    .admin-layout .btn {
+        padding: 9px 14px;
+        font-size: 13px;
+    }
+
+}

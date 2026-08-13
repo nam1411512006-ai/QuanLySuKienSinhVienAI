@@ -1,0 +1,632 @@
+/* ==========================================================
+   SETTING PAGE
+========================================================== */
+
+.setting-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.setting-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.setting-header-action {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+.setting-header-action .btn {
+
+    min-width: 160px;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.setting-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.setting-card-header {
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.setting-card-header h3 {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+/* ==========================================================
+   FORM GRID
+========================================================== */
+
+.setting-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+.setting-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.setting-group label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+}
+
+.setting-group input,
+
+.setting-group select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+.setting-group input:focus,
+
+.setting-group select:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+/* ==========================================================
+   UPLOAD
+========================================================== */
+
+.upload-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+
+}
+
+.upload-box {
+
+    min-height: 240px;
+
+    border: 2px dashed var(--border-strong);
+
+    border-radius: 18px;
+
+    background: var(--primary-50);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    transition: .3s;
+
+}
+
+.upload-box:hover {
+
+    border-color: var(--primary);
+
+    background: var(--primary-50);
+
+}
+
+.upload-box svg {
+
+    font-size: 60px;
+
+    color: var(--primary);
+
+}
+
+.upload-box p {
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+}
+
+/* ==========================================================
+   ACTION
+========================================================== */
+
+.setting-action {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 16px;
+
+    margin-top: 24px;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.setting-action .btn {
+
+    min-width: 180px;
+
+    height: 48px;
+
+}
+
+/* ==========================================================
+   STORAGE
+========================================================== */
+
+.setting-card textarea {
+
+    width: 100%;
+
+    min-height: 140px;
+
+    padding: 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    resize: vertical;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+}
+
+.setting-card textarea:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+/* ==========================================================
+   SYSTEM INFO
+========================================================== */
+
+.system-info-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.system-item {
+
+    background: var(--primary-50);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    transition: .3s;
+
+}
+
+.system-item:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+
+}
+
+.system-item span {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+.system-item strong {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+.system-status {
+
+    color: var(--success) !important;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.setting-footer-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.setting-footer-left {
+
+    flex: 1;
+
+}
+
+.setting-footer-left h3 {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 8px;
+
+}
+
+.setting-footer-left p {
+
+    font-size: 15px;
+
+    color: var(--text-light);
+
+    line-height: 1.7;
+
+}
+
+.setting-footer-right {
+
+    display: flex;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+}
+
+.setting-footer-right .btn {
+
+    min-width: 180px;
+
+}
+
+/* ==========================================================
+   STATUS CARD
+========================================================== */
+
+.system-item.online {
+
+    border-left: 5px solid var(--success);
+
+}
+
+.system-item.warning {
+
+    border-left: 5px solid var(--warning);
+
+}
+
+.system-item.error {
+
+    border-left: 5px solid var(--danger);
+
+}
+
+/* ==========================================================
+   CARD EFFECT
+========================================================== */
+
+.setting-card {
+
+    transition: .3s;
+
+}
+
+.setting-card:hover {
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px) {
+
+    .setting-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .system-info-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .setting-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .setting-header-action {
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
+    }
+
+    .setting-header-action .btn {
+
+        flex: 1;
+
+        min-width: 180px;
+
+    }
+
+    .upload-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .setting-action {
+
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+
+    }
+
+    .setting-footer-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .setting-footer-right {
+
+        width: 100%;
+
+    }
+
+    .setting-footer-right .btn {
+
+        flex: 1;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .system-info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .setting-header-action {
+
+        flex-direction: column;
+
+    }
+
+    .setting-header-action .btn {
+
+        width: 100%;
+
+    }
+
+    .setting-action {
+
+        flex-direction: column;
+
+    }
+
+    .setting-action .btn {
+
+        width: 100%;
+
+    }
+
+    .setting-footer-right {
+
+        flex-direction: column;
+
+    }
+
+    .setting-footer-right .btn {
+
+        width: 100%;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .setting-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.setting-card,
+.upload-box,
+.system-item,
+.setting-footer-card {
+
+    animation: settingFade .35s ease;
+
+}
+
+@keyframes settingFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.setting-card::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+.setting-card::-webkit-scrollbar-thumb {
+
+    background: var(--border-strong);
+
+    border-radius: 20px;
+
+}
+
+.setting-card::-webkit-scrollbar-track {
+
+    background: var(--primary-50);
+
+}

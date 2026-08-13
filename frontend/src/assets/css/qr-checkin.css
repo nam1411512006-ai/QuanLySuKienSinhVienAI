@@ -1,0 +1,226 @@
+.qr-page {
+
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+
+}
+
+.qr-card {
+
+    width: 100%;
+    max-width: 900px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+.qr-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+.qr-header h2 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+}
+
+.qr-header p {
+
+    margin-top: 10px;
+
+    color: var(--text-light);
+
+}
+
+.status {
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+}
+
+.waiting {
+
+    background: var(--warning-light);
+
+    color: var(--warning);
+
+}
+
+.camera-box {
+
+    width: 100%;
+
+    min-height: 420px;
+
+    border: 3px dashed var(--primary);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    background: var(--primary-50);
+
+}
+
+.btn-group {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+.scan-btn {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+.scan-btn:hover {
+
+    background: var(--primary);
+
+}
+
+.stop-btn {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: var(--danger);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+.stop-btn:hover {
+
+    background: var(--danger);
+
+}
+
+.success-box {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: var(--success-light);
+
+    border: 1px solid var(--success);
+
+}
+
+.success-title {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: var(--success);
+
+    margin-bottom: 20px;
+
+}
+
+.info-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.info-row:last-child {
+
+    border: none;
+
+}
+
+.info-row span {
+
+    color: var(--text-light);
+
+}
+
+.success-status {
+
+    color: var(--success);
+
+}
+
+@media(max-width:768px) {
+
+    .qr-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .btn-group {
+
+        flex-direction: column;
+
+    }
+
+}

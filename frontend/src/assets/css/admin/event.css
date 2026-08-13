@@ -1,0 +1,904 @@
+/* ==========================================================
+   EVENT PAGE
+========================================================== */
+
+.event-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.event-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.event-header-action {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+.event-header-action .btn {
+
+    min-width: 150px;
+
+}
+
+/* ==========================================================
+   STATISTIC
+========================================================== */
+
+.event-stat-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+}
+
+.event-stat-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+    box-shadow: 0 6px 18px rgba(15, 23, 42, .04);
+
+}
+
+.event-stat-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+
+}
+
+.event-stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background: var(--primary);
+
+}
+
+.event-stat-card.success::before {
+
+    background: var(--success);
+
+}
+
+.event-stat-card.warning::before {
+
+    background: var(--warning);
+
+}
+
+.event-stat-card.danger::before {
+
+    background: var(--danger);
+
+}
+
+.event-stat-card .stat-title {
+
+    display: block;
+
+    font-size: 15px;
+
+    color: var(--text-light);
+
+    margin-bottom: 14px;
+
+}
+
+.event-stat-card h2 {
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 10px;
+
+}
+
+.event-stat-card p {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.event-toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+}
+
+.event-toolbar-left {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.event-toolbar-right {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.event-search {
+
+    width: 430px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    transition: .3s;
+
+}
+
+.event-search:hover {
+
+    border-color: var(--border-strong);
+
+}
+
+.event-search:focus-within {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+.event-search svg {
+
+    color: var(--text-light);
+
+    font-size: 18px;
+
+}
+
+.event-search input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+
+    color: var(--text);
+
+}
+
+.event-search input::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+/* ==========================================================
+   FILTER
+========================================================== */
+
+.event-filter {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+}
+
+.event-filter select {
+
+    width: 190px;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.event-filter select:hover {
+
+    border-color: var(--border-strong);
+
+}
+
+.event-filter select:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+
+}
+
+/* ==========================================================
+   ADD BUTTON
+========================================================== */
+
+.event-toolbar-right .btn {
+
+    min-width: 190px;
+
+    height: 48px;
+
+}
+
+.event-toolbar-right .btn svg {
+
+    font-size: 18px;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.event-table-card {
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+.event-table-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.event-table-header h3 {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 6px;
+
+}
+
+.event-table-header p {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.event-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+.event-table thead {
+
+    background: var(--primary-50);
+
+}
+
+.event-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--text-light);
+
+    border-bottom: 1px solid var(--border);
+
+    white-space: nowrap;
+
+}
+
+.event-table td {
+
+    padding: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+    vertical-align: middle;
+
+}
+
+.event-table tbody tr {
+
+    transition: .25s;
+
+}
+
+.event-table tbody tr:hover {
+
+    background: var(--primary-50);
+
+}
+
+/* ==========================================================
+   EVENT NAME
+========================================================== */
+
+.event-table strong {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+/* ==========================================================
+   REGISTER COUNT
+========================================================== */
+
+.register-count {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 95px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    border-radius: 999px;
+
+    background: var(--primary-50);
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.event-table .status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 120px;
+
+    height: 34px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.event-table .status.coming {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.event-table .status.running {
+
+    background: var(--warning-light);
+
+    color: var(--warning);
+
+}
+
+.event-table .status.finish {
+
+    background: var(--success-light);
+
+    color: var(--success);
+
+}
+
+/* ==========================================================
+   ACTION
+========================================================== */
+
+.event-table .table-action {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.event-table .table-view,
+
+.event-table .table-edit,
+
+.event-table .table-delete {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.event-table .table-view {
+
+    background: var(--primary-light);
+
+    color: var(--primary-hover);
+
+}
+
+.event-table .table-view:hover {
+
+    background: var(--primary-hover);
+
+    color: #ffffff;
+
+}
+
+.event-table .table-edit {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.event-table .table-edit:hover {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.event-table .table-delete {
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+
+}
+
+.event-table .table-delete:hover {
+
+    background: var(--danger);
+
+    color: #ffffff;
+
+}
+
+/* ==========================================================
+   PAGINATION
+========================================================== */
+
+.event-pagination-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.event-pagination-card .pagination-info {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+}
+
+.event-pagination-card .pagination-info strong {
+
+    color: var(--text);
+
+    font-weight: 700;
+
+}
+
+.event-pagination-card .pagination {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.event-pagination-card .pagination-btn {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--primary-50);
+
+    color: var(--text);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-weight: 600;
+
+}
+
+.event-pagination-card .pagination-btn:hover:not(:disabled) {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.event-pagination-card .pagination-btn.active {
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+}
+
+.event-pagination-card .pagination-btn:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px) {
+
+    .event-stat-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .event-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .event-header-action {
+
+        width: 100%;
+
+    }
+
+    .event-toolbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .event-toolbar-left {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .event-search {
+
+        width: 100%;
+
+        max-width: none;
+
+    }
+
+    .event-filter {
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
+    }
+
+    .event-filter select {
+
+        flex: 1;
+
+        min-width: 180px;
+
+    }
+
+    .event-toolbar-right {
+
+        width: 100%;
+
+    }
+
+    .event-toolbar-right .btn {
+
+        width: 100%;
+
+    }
+
+    .event-pagination-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .event-stat-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .event-table-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+    .event-table {
+
+        min-width: 1100px;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .event-filter {
+
+        flex-direction: column;
+
+    }
+
+    .event-filter select {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.event-stat-card,
+.event-toolbar,
+.event-table-card,
+.event-pagination-card {
+
+    animation: eventFade .35s ease;
+
+}
+
+@keyframes eventFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.event-table::-webkit-scrollbar {
+
+    height: 8px;
+
+}
+
+.event-table::-webkit-scrollbar-thumb {
+
+    background: var(--border-strong);
+
+    border-radius: 20px;
+
+}
+
+.event-table::-webkit-scrollbar-track {
+
+    background: var(--primary-50);
+
+}

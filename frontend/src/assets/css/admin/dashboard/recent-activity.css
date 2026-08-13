@@ -1,0 +1,141 @@
+/* =====================================================
+   DASHBOARD RECENT ACTIVITY
+===================================================== */
+
+.dashboard-activity-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+
+}
+
+.dashboard-activity-header {
+
+    margin-bottom: 25px;
+
+}
+
+.dashboard-activity-header h3 {
+
+    font-size: 22px;
+
+    color: var(--text);
+
+}
+
+.dashboard-activity-header p {
+
+    margin-top: 6px;
+
+    color: var(--text-light);
+
+}
+
+.dashboard-activity-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.dashboard-activity-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    transition: .3s;
+
+}
+
+.dashboard-activity-item:hover {
+
+    background: var(--primary-50);
+
+}
+
+.dashboard-activity-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+}
+
+.dashboard-activity-icon.primary {
+
+    background: var(--primary);
+
+}
+
+.dashboard-activity-icon.success {
+
+    background: var(--success);
+
+}
+
+.dashboard-activity-icon.warning {
+
+    background: var(--warning);
+
+}
+
+.dashboard-activity-icon.danger {
+
+    background: var(--danger);
+
+}
+
+.dashboard-activity-content {
+
+    flex: 1;
+
+}
+
+.dashboard-activity-content h4 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    color: var(--text);
+
+}
+
+.dashboard-activity-content span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+}

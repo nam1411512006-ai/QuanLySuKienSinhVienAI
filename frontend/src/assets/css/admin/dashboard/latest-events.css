@@ -1,0 +1,225 @@
+/* =====================================================
+   DASHBOARD LATEST EVENTS
+===================================================== */
+
+.dashboard-events-card {
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+
+    margin-bottom: 30px;
+
+}
+
+.dashboard-events-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+.dashboard-events-header h3 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 22px;
+
+}
+
+.dashboard-events-header svg {
+
+    color: var(--primary);
+
+}
+
+.dashboard-events-header p {
+
+    margin-top: 6px;
+
+    color: var(--text-light);
+
+}
+
+.dashboard-view-all {
+
+    background: var(--primary);
+
+    color: #fff;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.dashboard-view-all:hover {
+
+    background: var(--primary-hover);
+
+}
+
+.dashboard-events-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+.dashboard-events-table th {
+
+    background: var(--primary-50);
+
+    color: var(--text-light);
+
+    padding: 16px;
+
+    text-align: left;
+
+    font-weight: 600;
+
+}
+
+.dashboard-events-table td {
+
+    padding: 18px 16px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+.dashboard-events-table tbody tr {
+
+    transition: .3s;
+
+}
+
+.dashboard-events-table tbody tr:hover {
+
+    background: var(--primary-50);
+
+}
+
+.dashboard-events-table img {
+
+    width: 70px;
+
+    height: 50px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+}
+
+.dashboard-status {
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.dashboard-status.Đang\ diễn\ ra {
+
+    background: var(--success-light);
+
+    color: var(--success);
+
+}
+
+.dashboard-status.Sắp\ diễn\ ra {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+}
+
+.dashboard-status.Đã\ kết\ thúc {
+
+    background: var(--danger-light);
+
+    color: var(--danger);
+
+}
+
+.dashboard-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.dashboard-actions button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary-50);
+
+    color: var(--primary);
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.dashboard-actions button:hover {
+
+    background: var(--primary);
+
+    color: #fff;
+
+}
+
+.dashboard-events-table-wrapper {
+
+    overflow-x: auto;
+
+}
+
+@media(max-width:992px) {
+
+    .dashboard-events-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+}

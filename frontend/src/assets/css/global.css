@@ -1,0 +1,205 @@
+/* ==========================================================
+   BETU EVENT - DESIGN SYSTEM (Sinh vien / Ban to chuc)
+   Phong cach: hoc thuat, chuyen nghiep - xanh duong thuong hieu
+   + vang dong lam diem nhan
+========================================================== */
+
+:root {
+
+    /* ================= PRIMARY (xanh duong thuong hieu) ================= */
+
+    --primary: #1450B4;
+    --primary-hover: #0F3A87;
+    --primary-light: #E8F0FE;
+    --primary-50: #F4F8FF;
+
+    /* ================= ACCENT (vang dong - hoc thuat) ================= */
+
+    --accent: #C9973B;
+    --accent-hover: #AD7E28;
+    --accent-light: #FBF1DD;
+
+    /* ================= SECONDARY (tuong thich nguoc) ================= */
+
+    --secondary: #C9973B;
+
+    /* ================= SEMANTIC ================= */
+
+    --success: #1E8E5A;
+    --success-light: #E6F6EE;
+
+    --warning: #C77D0A;
+    --warning-light: #FCEFDC;
+
+    --danger: #C0392B;
+    --danger-light: #FBEAE8;
+
+    --info: #2E7BB8;
+    --info-light: #E7F3FB;
+
+    /* ================= NEUTRAL / TEXT ================= */
+
+    --text: #1A2332;
+    --text-light: #4B5768;
+    --text-muted: #8A93A3;
+
+    /* ================= BACKGROUND ================= */
+
+    --background: #F4F6FA;
+    --surface: #FFFFFF;
+
+    /* ================= BORDER ================= */
+
+    --border: #E2E6ED;
+    --border-strong: #CBD2DD;
+
+    /* ================= RADIUS ================= */
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    /* ================= SHADOW ================= */
+
+    --shadow-sm: 0 1px 2px rgba(20, 32, 54, .06), 0 1px 1px rgba(20, 32, 54, .04);
+    --shadow: 0 4px 16px rgba(20, 32, 54, .08), 0 2px 4px rgba(20, 32, 54, .04);
+    --shadow-lg: 0 16px 40px rgba(20, 32, 54, .12), 0 4px 10px rgba(20, 32, 54, .05);
+
+    /* ================= FONT ================= */
+
+    --font-main: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+
+}
+
+/* =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family: var(--font-main);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+    font-family: var(--font-main);
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--text);
+
+}
+
+/* =========================== */
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+button {
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+    font-family: inherit;
+
+}
+
+input,
+textarea,
+select {
+
+    outline: none;
+
+    border: 1px solid var(--border);
+
+    font-family: inherit;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px var(--primary-light);
+
+}
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+/* =========================== */
+
+.container-page {
+
+    width: 100%;
+
+    max-width: 1600px;
+
+    margin: auto;
+
+}
+
+/* =========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
