@@ -1,4 +1,4 @@
--- =====================================================
+﻿-- =====================================================
 -- DATABASE
 -- =====================================================
 
@@ -12,10 +12,10 @@ USE QuanLySuKienSinhVien;
 
 
 -- =====================================================
--- 1. BẢNG VAI TRÒ
+-- 1. Báº¢NG VAI TRÃ’
 -- =====================================================
 
-CREATE TABLE VaiTro
+CREATE TABLE vaitro
 (
     MaVaiTro INT AUTO_INCREMENT PRIMARY KEY,
     TenVaiTro VARCHAR(50) NOT NULL,
@@ -25,10 +25,10 @@ CREATE TABLE VaiTro
 
 
 -- =====================================================
--- 2. BẢNG TRUNG TÂM
+-- 2. Báº¢NG TRUNG TÃ‚M
 -- =====================================================
 
-CREATE TABLE TrungTam
+CREATE TABLE trungtam
 (
     MaTrungTam INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -42,10 +42,10 @@ CREATE TABLE TrungTam
 
 
 -- =====================================================
--- 3. BẢNG TÀI KHOẢN
+-- 3. Báº¢NG TÃ€I KHOáº¢N
 -- =====================================================
 
-CREATE TABLE TaiKhoan
+CREATE TABLE taikhoan
 (
     MaTaiKhoan INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -75,21 +75,21 @@ CREATE TABLE TaiKhoan
 
 
     FOREIGN KEY(MaVaiTro)
-    REFERENCES VaiTro(MaVaiTro),
+    REFERENCES vaitro(MaVaiTro),
 
 
     FOREIGN KEY(MaTrungTam)
-    REFERENCES TrungTam(MaTrungTam)
+    REFERENCES trungtam(MaTrungTam)
 
 );
 
 
 
 -- =====================================================
--- 4. BẢNG LOẠI SỰ KIỆN
+-- 4. Báº¢NG LOáº I Sá»° KIá»†N
 -- =====================================================
 
-CREATE TABLE LoaiSuKien
+CREATE TABLE loaisukien
 (
     MaLoaiSuKien INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -102,10 +102,10 @@ CREATE TABLE LoaiSuKien
 
 
 -- =====================================================
--- 5. BẢNG SỰ KIỆN
+-- 5. Báº¢NG Sá»° KIá»†N
 -- =====================================================
 
-CREATE TABLE SuKien
+CREATE TABLE sukien
 (
     MaSuKien INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -148,25 +148,25 @@ CREATE TABLE SuKien
 
 
     FOREIGN KEY(MaLoaiSuKien)
-    REFERENCES LoaiSuKien(MaLoaiSuKien),
+    REFERENCES loaisukien(MaLoaiSuKien),
 
 
     FOREIGN KEY(MaTrungTam)
-    REFERENCES TrungTam(MaTrungTam),
+    REFERENCES trungtam(MaTrungTam),
 
 
     FOREIGN KEY(MaNguoiTao)
-    REFERENCES TaiKhoan(MaTaiKhoan)
+    REFERENCES taikhoan(MaTaiKhoan)
 
 );
 
 
 
 -- =====================================================
--- 6. BẢNG ĐĂNG KÝ SỰ KIỆN
+-- 6. Báº¢NG ÄÄ‚NG KÃ Sá»° KIá»†N
 -- =====================================================
 
-CREATE TABLE DangKySuKien
+CREATE TABLE dangkysukien
 (
     MaDangKy INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -185,11 +185,11 @@ CREATE TABLE DangKySuKien
 
 
     FOREIGN KEY(MaSuKien)
-    REFERENCES SuKien(MaSuKien),
+    REFERENCES sukien(MaSuKien),
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan),
+    REFERENCES taikhoan(MaTaiKhoan),
 
 
     UNIQUE(MaSuKien,MaTaiKhoan)
@@ -199,10 +199,10 @@ CREATE TABLE DangKySuKien
 
 
 -- =====================================================
--- 7. BẢNG PHIÊN QR CODE
+-- 7. Báº¢NG PHIÃŠN QR CODE
 -- =====================================================
 
-CREATE TABLE PhienQRCode
+CREATE TABLE phienqrcode
 (
     MaPhienQR INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -224,17 +224,17 @@ CREATE TABLE PhienQRCode
 
 
     FOREIGN KEY(MaSuKien)
-    REFERENCES SuKien(MaSuKien)
+    REFERENCES sukien(MaSuKien)
 
 );
 
 
 
 -- =====================================================
--- 8. BẢNG ĐIỂM DANH
+-- 8. Báº¢NG ÄIá»‚M DANH
 -- =====================================================
 
-CREATE TABLE DiemDanh
+CREATE TABLE diemdanh
 (
     MaDiemDanh INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -253,21 +253,21 @@ CREATE TABLE DiemDanh
 
 
     FOREIGN KEY(MaDangKy)
-    REFERENCES DangKySuKien(MaDangKy),
+    REFERENCES dangkysukien(MaDangKy),
 
 
     FOREIGN KEY(MaPhienQR)
-    REFERENCES PhienQRCode(MaPhienQR)
+    REFERENCES phienqrcode(MaPhienQR)
 
 );
 
 
 
 -- =====================================================
--- 9. BẢNG ĐIỂM RÈN LUYỆN
+-- 9. Báº¢NG ÄIá»‚M RÃˆN LUYá»†N
 -- =====================================================
 
-CREATE TABLE DiemRenLuyen
+CREATE TABLE diemrenluyen
 (
     MaDiemRenLuyen INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -295,7 +295,7 @@ CREATE TABLE DiemRenLuyen
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan),
+    REFERENCES taikhoan(MaTaiKhoan),
 
 
     UNIQUE(MaTaiKhoan,HocKy,NamHoc)
@@ -305,10 +305,10 @@ CREATE TABLE DiemRenLuyen
 
 
 -- =====================================================
--- 10. BẢNG LỊCH SỬ ĐIỂM RÈN LUYỆN
+-- 10. Báº¢NG Lá»ŠCH Sá»¬ ÄIá»‚M RÃˆN LUYá»†N
 -- =====================================================
 
-CREATE TABLE LichSuDiemRenLuyen
+CREATE TABLE lichsudiemrenluyen
 (
     MaLichSu INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -330,21 +330,21 @@ CREATE TABLE LichSuDiemRenLuyen
 
 
     FOREIGN KEY(MaDiemRenLuyen)
-    REFERENCES DiemRenLuyen(MaDiemRenLuyen),
+    REFERENCES diemrenluyen(MaDiemRenLuyen),
 
 
     FOREIGN KEY(MaSuKien)
-    REFERENCES SuKien(MaSuKien)
+    REFERENCES sukien(MaSuKien)
 
 );
 
 
 
 -- =====================================================
--- 11. BẢNG ĐÁNH GIÁ
+-- 11. Báº¢NG ÄÃNH GIÃ
 -- =====================================================
 
-CREATE TABLE DanhGia
+CREATE TABLE danhgia
 (
     MaDanhGia INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -366,11 +366,11 @@ CREATE TABLE DanhGia
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan),
+    REFERENCES taikhoan(MaTaiKhoan),
 
 
     FOREIGN KEY(MaSuKien)
-    REFERENCES SuKien(MaSuKien),
+    REFERENCES sukien(MaSuKien),
 
 
     UNIQUE(MaTaiKhoan,MaSuKien)
@@ -380,7 +380,7 @@ CREATE TABLE DanhGia
 
 
 -- =====================================================
--- 12. BẢNG LỊCH SỬ AI
+-- 12. Báº¢NG Lá»ŠCH Sá»¬ AI
 -- =====================================================
 
 CREATE TABLE LichSuTroChuyenAI
@@ -402,17 +402,17 @@ CREATE TABLE LichSuTroChuyenAI
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan)
+    REFERENCES taikhoan(MaTaiKhoan)
 
 );
 
 
 
 -- =====================================================
--- 13. BẢNG THÔNG BÁO
+-- 13. Báº¢NG THÃ”NG BÃO
 -- =====================================================
 
-CREATE TABLE ThongBao
+CREATE TABLE thongbao
 (
     MaThongBao INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -433,10 +433,10 @@ CREATE TABLE ThongBao
 
 
 -- =====================================================
--- 14. BẢNG NGƯỜI NHẬN THÔNG BÁO
+-- 14. Báº¢NG NGÆ¯á»œI NHáº¬N THÃ”NG BÃO
 -- =====================================================
 
-CREATE TABLE NguoiNhanThongBao
+CREATE TABLE nguoinhanthongbao
 (
     MaNhan INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -455,18 +455,18 @@ CREATE TABLE NguoiNhanThongBao
 
 
     FOREIGN KEY(MaThongBao)
-    REFERENCES ThongBao(MaThongBao),
+    REFERENCES thongbao(MaThongBao),
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan)
+    REFERENCES taikhoan(MaTaiKhoan)
 
 );
 
 
 
 -- =====================================================
--- 15. BẢNG NHẬT KÝ HỆ THỐNG
+-- 15. Báº¢NG NHáº¬T KÃ Há»† THá»NG
 -- =====================================================
 
 CREATE TABLE NhatKyHeThong
@@ -491,7 +491,7 @@ CREATE TABLE NhatKyHeThong
 
 
     FOREIGN KEY(MaTaiKhoan)
-    REFERENCES TaiKhoan(MaTaiKhoan)
+    REFERENCES taikhoan(MaTaiKhoan)
 
 );
 USE QuanLySuKienSinhVien;
@@ -499,10 +499,10 @@ USE QuanLySuKienSinhVien;
 
 
 -- =====================================================
--- DỮ LIỆU VAI TRÒ
+-- Dá»® LIá»†U VAI TRÃ’
 -- =====================================================
 
-INSERT INTO VaiTro
+INSERT INTO vaitro
 (
 TenVaiTro,
 MoTa
@@ -519,10 +519,10 @@ VALUES
 
 
 -- =====================================================
--- DỮ LIỆU TRUNG TÂM
+-- Dá»® LIá»†U TRUNG TÃ‚M
 -- =====================================================
 
-INSERT INTO TrungTam
+INSERT INTO trungtam
 (
 TenTrungTam,
 MoTa
@@ -538,10 +538,10 @@ VALUES
 
 
 -- =====================================================
--- TÀI KHOẢN ADMIN
+-- TÃ€I KHOáº¢N ADMIN
 -- =====================================================
 
-INSERT INTO TaiKhoan
+INSERT INTO taikhoan
 (
 MaVaiTro,
 HoTen,
@@ -563,10 +563,10 @@ VALUES
 
 
 -- =====================================================
--- TÀI KHOẢN BAN TỔ CHỨC
+-- TÃ€I KHOáº¢N BAN Tá»” CHá»¨C
 -- =====================================================
 
-INSERT INTO TaiKhoan
+INSERT INTO taikhoan
 (
 MaVaiTro,
 MaTrungTam,
@@ -591,14 +591,14 @@ VALUES
 
 
 -- =====================================================
--- 30 TÀI KHOẢN SINH VIÊN
--- Quy ước:
+-- 30 TÃ€I KHOáº¢N SINH VIÃŠN
+-- Quy Æ°á»›c:
 -- Tai khoan: ten.nganhxxxxx
 -- Mat khau: 5 so cuoi
 -- =====================================================
 
 
-INSERT INTO TaiKhoan
+INSERT INTO taikhoan
 (
 MaVaiTro,
 HoTen,
@@ -694,10 +694,10 @@ VALUES
 
 
 -- =====================================================
--- LOẠI SỰ KIỆN
+-- LOáº I Sá»° KIá»†N
 -- =====================================================
 
-INSERT INTO LoaiSuKien
+INSERT INTO loaisukien
 (
 TenLoaiSuKien,
 MoTa
@@ -738,13 +738,13 @@ USE QuanLySuKienSinhVien;
 
 
 -- =====================================================
--- DỮ LIỆU SỰ KIỆN
--- Trung tâm 1 quản lý tất cả
--- Người tạo: Ban tổ chức (MaTaiKhoan = 2)
+-- Dá»® LIá»†U Sá»° KIá»†N
+-- Trung tÃ¢m 1 quáº£n lÃ½ táº¥t cáº£
+-- NgÆ°á»i táº¡o: Ban tá»• chá»©c (MaTaiKhoan = 2)
 -- =====================================================
 
 
-INSERT INTO SuKien
+INSERT INTO sukien
 (
 MaLoaiSuKien,
 MaTrungTam,
@@ -763,7 +763,7 @@ VALUES
 
 
 -- ==========================
--- HỌC KỲ 1 - NĂM HỌC 2024-2025
+-- Há»ŒC Ká»² 1 - NÄ‚M Há»ŒC 2024-2025
 -- ==========================
 
 
@@ -811,7 +811,7 @@ VALUES
 
 
 -- ==========================
--- HỌC KỲ 2 - NĂM HỌC 2024-2025
+-- Há»ŒC Ká»² 2 - NÄ‚M Há»ŒC 2024-2025
 -- ==========================
 
 
@@ -859,7 +859,7 @@ VALUES
 
 
 -- ==========================
--- HỌC KỲ 1 - NĂM HỌC 2025-2026
+-- Há»ŒC Ká»² 1 - NÄ‚M Há»ŒC 2025-2026
 -- ==========================
 
 
@@ -910,12 +910,12 @@ VALUES
 
 
 -- =====================================================
--- ĐĂNG KÝ SỰ KIỆN
--- Một số sinh viên tham gia
+-- ÄÄ‚NG KÃ Sá»° KIá»†N
+-- Má»™t sá»‘ sinh viÃªn tham gia
 -- =====================================================
 
 
-INSERT INTO DangKySuKien
+INSERT INTO dangkysukien
 (
 MaSuKien,
 MaTaiKhoan,
@@ -924,7 +924,7 @@ TrangThai
 VALUES
 
 
--- Sự kiện 1
+-- Sá»± kiá»‡n 1
 
 (1,3,'DaDangKy'),
 (1,4,'DaDangKy'),
@@ -933,7 +933,7 @@ VALUES
 (1,7,'DaDangKy'),
 
 
--- Sự kiện 2
+-- Sá»± kiá»‡n 2
 
 (2,3,'DaDangKy'),
 (2,4,'DaDangKy'),
@@ -941,45 +941,45 @@ VALUES
 (2,9,'DaDangKy'),
 
 
--- Sự kiện 3
+-- Sá»± kiá»‡n 3
 
 (3,3,'DaDangKy'),
 (3,5,'DaDangKy'),
 (3,6,'DaDangKy'),
 
 
--- Sự kiện 4
+-- Sá»± kiá»‡n 4
 
 (4,3,'DaDangKy'),
 (4,7,'DaDangKy'),
 (4,10,'DaDangKy'),
 
 
--- Sự kiện 5
+-- Sá»± kiá»‡n 5
 
 (5,3,'DaDangKy'),
 (5,4,'DaDangKy'),
 
 
--- Sự kiện 6
+-- Sá»± kiá»‡n 6
 
 (6,5,'DaDangKy'),
 (6,8,'DaDangKy'),
 
 
--- Sự kiện 7
+-- Sá»± kiá»‡n 7
 
 (7,3,'DaDangKy'),
 (7,9,'DaDangKy'),
 
 
--- Sự kiện 8
+-- Sá»± kiá»‡n 8
 
 (8,4,'DaDangKy'),
 (8,6,'DaDangKy'),
 
 
--- Sự kiện 9
+-- Sá»± kiá»‡n 9
 
 (9,3,'DaDangKy'),
 (9,5,'DaDangKy');
@@ -991,11 +991,11 @@ VALUES
 
 
 -- =====================================================
--- PHIÊN QR CODE
+-- PHIÃŠN QR CODE
 -- =====================================================
 
 
-INSERT INTO PhienQRCode
+INSERT INTO phienqrcode
 (
 MaSuKien,
 MaQR,
@@ -1066,11 +1066,11 @@ VALUES
 
 
 -- =====================================================
--- ĐIỂM DANH
+-- ÄIá»‚M DANH
 -- =====================================================
 
 
-INSERT INTO DiemDanh
+INSERT INTO diemdanh
 (
 MaDangKy,
 MaPhienQR,
@@ -1115,12 +1115,12 @@ VALUES
 
 
 -- =====================================================
--- ĐIỂM RÈN LUYỆN
--- 45 điểm trường + điểm hoạt động
+-- ÄIá»‚M RÃˆN LUYá»†N
+-- 45 Ä‘iá»ƒm trÆ°á»ng + Ä‘iá»ƒm hoáº¡t Ä‘á»™ng
 -- =====================================================
 
 
-INSERT INTO DiemRenLuyen
+INSERT INTO diemrenluyen
 (
 MaTaiKhoan,
 HocKy,
@@ -1132,7 +1132,7 @@ TongDiem
 VALUES
 
 
--- HỌC KỲ 1 2024-2025
+-- Há»ŒC Ká»² 1 2024-2025
 
 (3,1,'2024-2025',45,13,58),
 (4,1,'2024-2025',45,8,53),
@@ -1142,7 +1142,7 @@ VALUES
 
 
 
--- HỌC KỲ 2 2024-2025
+-- Há»ŒC Ká»² 2 2024-2025
 
 (3,2,'2024-2025',45,13,58),
 (4,2,'2024-2025',45,8,53),
@@ -1150,7 +1150,7 @@ VALUES
 
 
 
--- HỌC KỲ 1 2025-2026
+-- Há»ŒC Ká»² 1 2025-2026
 
 (3,1,'2025-2026',45,13,58),
 (4,1,'2025-2026',45,10,55),
@@ -1160,10 +1160,10 @@ USE QuanLySuKienSinhVien;
 
 
 -- =====================================================
--- LỊCH SỬ CỘNG ĐIỂM RÈN LUYỆN
+-- Lá»ŠCH Sá»¬ Cá»˜NG ÄIá»‚M RÃˆN LUYá»†N
 -- =====================================================
 
-INSERT INTO LichSuDiemRenLuyen
+INSERT INTO lichsudiemrenluyen
 (
 MaDiemRenLuyen,
 MaSuKien,
@@ -1173,8 +1173,8 @@ LyDo
 VALUES
 
 
--- Sinh viên CN10001 (MaTaiKhoan = 3)
--- Học kỳ 1 2024-2025
+-- Sinh viÃªn CN10001 (MaTaiKhoan = 3)
+-- Há»c ká»³ 1 2024-2025
 
 (1,1,5,'Tham gia Ngay Hoi Viec Lam 2024'),
 
@@ -1184,7 +1184,7 @@ VALUES
 
 
 
--- Học kỳ 2
+-- Há»c ká»³ 2
 
 (6,4,5,'Tham gia Cuoc Thi Lap Trinh Sinh Vien'),
 
@@ -1194,7 +1194,7 @@ VALUES
 
 
 
--- Học kỳ 3
+-- Há»c ká»³ 3
 
 (9,7,5,'Tham gia Tech Festival 2025'),
 
@@ -1208,11 +1208,11 @@ VALUES
 
 
 -- =====================================================
--- ĐÁNH GIÁ SỰ KIỆN
+-- ÄÃNH GIÃ Sá»° KIá»†N
 -- =====================================================
 
 
-INSERT INTO DanhGia
+INSERT INTO danhgia
 (
 MaTaiKhoan,
 MaSuKien,
@@ -1247,7 +1247,7 @@ VALUES
 
 
 -- =====================================================
--- LỊCH SỬ CHAT AI
+-- Lá»ŠCH Sá»¬ CHAT AI
 -- =====================================================
 
 
@@ -1294,11 +1294,11 @@ VALUES
 
 
 -- =====================================================
--- THÔNG BÁO
+-- THÃ”NG BÃO
 -- =====================================================
 
 
-INSERT INTO ThongBao
+INSERT INTO thongbao
 (
 TieuDe,
 NoiDung,
@@ -1340,11 +1340,11 @@ VALUES
 
 
 -- =====================================================
--- NGƯỜI NHẬN THÔNG BÁO
+-- NGÆ¯á»œI NHáº¬N THÃ”NG BÃO
 -- =====================================================
 
 
-INSERT INTO NguoiNhanThongBao
+INSERT INTO nguoinhanthongbao
 (
 MaThongBao,
 MaTaiKhoan,
@@ -1380,7 +1380,7 @@ VALUES
 
 
 -- =====================================================
--- NHẬT KÝ HỆ THỐNG
+-- NHáº¬T KÃ Há»† THá»NG
 -- =====================================================
 
 
@@ -1432,3 +1432,4 @@ VALUES
 'DiemRenLuyen',
 '127.0.0.1'
 );
+
