@@ -131,6 +131,12 @@ CREATE TABLE sukien
     ThoiGianKetThuc DATETIME NOT NULL,
 
 
+    ThoiGianBatDauDangKy DATETIME,
+
+
+    ThoiGianKetThucDangKy DATETIME,
+
+
     SoLuongToiDa INT,
 
 
