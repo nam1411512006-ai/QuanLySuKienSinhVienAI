@@ -117,7 +117,7 @@ const DanhGiaPage = () => {
     }
 
     const hinhAnh = suKienDangChon?.anh_bia
-        ? `http://localhost:8000/uploads/${suKienDangChon.anh_bia}`
+        ? `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${suKienDangChon.anh_bia}`
         : "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200";
 
     return (

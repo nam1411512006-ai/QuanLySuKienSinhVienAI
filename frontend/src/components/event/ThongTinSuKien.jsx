@@ -51,7 +51,7 @@ const ThongTinSuKien = ({ suKien }) => {
     }
 
     const hinhAnh = suKien.anh_bia
-        ? `http://localhost:8000/uploads/${suKien.anh_bia}`
+        ? `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${suKien.anh_bia}`
         : "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80";
 
     const formatTrangThai = (trangThai) => {

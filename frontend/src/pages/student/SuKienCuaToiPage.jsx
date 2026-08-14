@@ -216,7 +216,7 @@ const SuKienCuaToiPage = () => {
                                         className="event-cover"
                                         src={
                                             item.anh_bia
-                                                ? `http://localhost:8000/uploads/${item.anh_bia}`
+                                                ? `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${item.anh_bia}`
                                                 : "https://placehold.co/600x350"
                                         }
                                         alt={item.ten_su_kien}

@@ -120,7 +120,7 @@ const DangKySuKienPage = () => {
                         <img
                             src={
                                 suKien.anh_bia
-                                    ? `http://localhost:8000/uploads/${suKien.anh_bia}`
+                                    ? `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${suKien.anh_bia}`
                                     : "https://placehold.co/300x200"
                             }
                             alt={suKien.ten_su_kien}

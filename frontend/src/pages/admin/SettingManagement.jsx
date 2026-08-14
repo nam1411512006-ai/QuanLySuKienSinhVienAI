@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { InfoCircle, Upload } from "react-bootstrap-icons";
 import adminCaiDatService from "../../services/adminCaiDatService";
 
-const MAY_CHU_ANH = "http://localhost:8000/uploads/";
+const MAY_CHU_ANH = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/`;
 
 const xayDungUrlAnh = (ten_file) => {
     if (!ten_file) return "";

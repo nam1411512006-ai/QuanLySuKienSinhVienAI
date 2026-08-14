@@ -124,9 +124,11 @@ const AdminSidebar = ({ hienThiTrenMobile, onDong }) => {
                 <img
                     src={
                         user?.anh_dai_dien
-                            ? (user.anh_dai_dien.startsWith("http")
-                                ? user.anh_dai_dien
-                                : `http://localhost:8000/uploads/${user.anh_dai_dien}`)
+                            ? (
+                                user.anh_dai_dien.startsWith("http")
+                                    ? user.anh_dai_dien
+                                    : `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${user.anh_dai_dien}`
+                            )
                             : "https://i.pravatar.cc/100"
                     }
                     alt="Admin"

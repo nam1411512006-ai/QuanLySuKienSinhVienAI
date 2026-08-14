@@ -16,7 +16,7 @@ const NHAN_TRANG_THAI = {
 const xayDungUrlAnh = (anh_bia) => {
     if (!anh_bia) return "https://placehold.co/80x60?text=BETU";
     if (anh_bia.startsWith("http")) return anh_bia;
-    return `http://localhost:8000/uploads/${anh_bia}`;
+    return `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${anh_bia}`;
 };
 
 const DashboardLatestEvents = ({ suKienGanDay = [] }) => {

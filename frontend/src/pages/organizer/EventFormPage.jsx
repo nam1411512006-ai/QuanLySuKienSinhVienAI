@@ -210,7 +210,7 @@ const EventFormPage = () => {
                                 src={
                                     form.anh_bia.startsWith("http")
                                         ? form.anh_bia
-                                        : `http://localhost:8000/uploads/${form.anh_bia}`
+                                        : `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/${form.anh_bia}`
                                 }
                                 alt="Ảnh bìa"
                                 style={{ maxWidth: "100%", maxHeight: "220px", borderRadius: "10px", display: "block", objectFit: "cover" }}

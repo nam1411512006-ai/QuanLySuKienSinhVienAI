@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import caiDatService from "../services/caiDatService";
 
-const MAY_CHU_ANH = "http://localhost:8000/uploads/";
+const MAY_CHU_ANH = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/uploads/`;
 
 export const xayDungUrlAnhCaiDat = (ten_file) => {
     if (!ten_file) return "";
