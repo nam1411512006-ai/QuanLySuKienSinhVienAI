@@ -22,8 +22,9 @@ const TrangChuPage = () => {
 
     const loadSuKien = async () => {
         try {
-
             const data = await suKienService.getAll();
+
+            console.log("Dữ liệu sự kiện trang chủ:", data);
 
             setSuKienList(data);
 
@@ -35,13 +36,15 @@ const TrangChuPage = () => {
     return (
         <div className="home-container">
 
-            {/* Banner */}
-            <BannerSuKien anhBanner={banner_url_day_du} />
+            {/* ================= BANNER ================= */}
+            <BannerSuKien
+                anhBanner={banner_url_day_du}
+            />
 
-            {/* Search */}
+            {/* ================= TÌM KIẾM ================= */}
             <SearchBar />
 
-            {/* Sự kiện nổi bật */}
+            {/* ================= SỰ KIỆN NỔI BẬT ================= */}
             <div className="home-section">
 
                 <h2 className="section-title">
@@ -54,12 +57,23 @@ const TrangChuPage = () => {
 
                         <CardSuKien
                             key={item.ma_su_kien}
+
+                            /* Thông tin cơ bản */
                             id={item.ma_su_kien}
                             ten={item.ten_su_kien}
                             ngay={item.thoi_gian_bat_dau}
                             diaDiem={item.dia_diem}
                             diem={item.diem_cong}
                             trangThai={item.trang_thai}
+
+                            /* Loại sự kiện */
+                            loaiSuKien={item.ten_loai_su_kien}
+
+                            /* Số lượng */
+                            soLuong={item.so_luong_toi_da}
+                            daDangKy={item.so_luong_da_dang_ky}
+
+                            /* Ảnh */
                             anhBia={item.anh_bia}
                         />
 
@@ -69,7 +83,7 @@ const TrangChuPage = () => {
 
             </div>
 
-            {/* Thông báo + AI */}
+            {/* ================= THÔNG BÁO + AI ================= */}
             <div className="home-bottom">
 
                 <div>

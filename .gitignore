@@ -109,3 +109,5 @@ uploads/*
 backend/app.zip
 frontend/test-results/
 *.zip
+# Local database backups
+database/*_backup.sql
