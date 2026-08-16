@@ -11,7 +11,6 @@ on:
       - main
       - develop
 
-
 jobs:
 
   # ==========================================================
@@ -28,17 +27,8 @@ jobs:
 
     steps:
 
-      # ------------------------------------------------------
-      # CHECKOUT
-      # ------------------------------------------------------
-
       - name: Checkout source code
         uses: actions/checkout@v4
-
-
-      # ------------------------------------------------------
-      # NODE.JS
-      # ------------------------------------------------------
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -47,26 +37,11 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 
-
-      # ------------------------------------------------------
-      # INSTALL DEPENDENCIES
-      # ------------------------------------------------------
-
       - name: Install dependencies
         run: npm ci
 
-
-      # ------------------------------------------------------
-      # ESLINT
-      # ------------------------------------------------------
-
       - name: Run ESLint
         run: npm run lint
-
-
-      # ------------------------------------------------------
-      # BUILD
-      # ------------------------------------------------------
 
       - name: Build React application
         run: npm run build
@@ -83,10 +58,6 @@ jobs:
     defaults:
       run:
         working-directory: backend
-
-    # --------------------------------------------------------
-    # MARIADB SERVICE
-    # --------------------------------------------------------
 
     services:
 
@@ -106,20 +77,10 @@ jobs:
           --health-timeout=5s
           --health-retries=10
 
-
     steps:
-
-      # ------------------------------------------------------
-      # CHECKOUT
-      # ------------------------------------------------------
 
       - name: Checkout source code
         uses: actions/checkout@v4
-
-
-      # ------------------------------------------------------
-      # PYTHON
-      # ------------------------------------------------------
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -128,31 +89,16 @@ jobs:
           cache: pip
           cache-dependency-path: backend/requirements.txt
 
-
-      # ------------------------------------------------------
-      # INSTALL BACKEND DEPENDENCIES
-      # ------------------------------------------------------
-
       - name: Install backend dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-
-
-      # ------------------------------------------------------
-      # INSTALL MARIADB CLIENT
-      # ------------------------------------------------------
 
       - name: Install MariaDB client
         working-directory: .
         run: |
           sudo apt-get update
           sudo apt-get install -y mariadb-client
-
-
-      # ------------------------------------------------------
-      # PREPARE DATABASE
-      # ------------------------------------------------------
 
       - name: Prepare MariaDB database
         working-directory: .
@@ -172,11 +118,6 @@ jobs:
             QuanLySuKienSinhVien \
             < "database/QuanLySuKienSinhVienAI.sql"
 
-
-      # ------------------------------------------------------
-      # VERIFY DATABASE
-      # ------------------------------------------------------
-
       - name: Check MariaDB database
         working-directory: .
         run: |
@@ -187,11 +128,6 @@ jobs:
             -proot \
             -e "USE QuanLySuKienSinhVien; SHOW TABLES;"
 
-
-      # ------------------------------------------------------
-      # CHECK FASTAPI APPLICATION
-      # ------------------------------------------------------
-
       - name: Check FastAPI application
         env:
           DATABASE_HOST: 127.0.0.1
@@ -199,20 +135,13 @@ jobs:
           DATABASE_NAME: QuanLySuKienSinhVien
           DATABASE_USER: root
           DATABASE_PASSWORD: root
-
           JWT_SECRET_KEY: ci-test-secret-key
-
           APP_NAME: QuanLySuKienSinhVienAI
           APP_ENV: testing
           DEBUG: "false"
 
         run: |
           python -c "from app.main import app; print('FastAPI application import: OK')"
-
-
-      # ------------------------------------------------------
-      # RUN PYTEST + COVERAGE
-      # ------------------------------------------------------
 
       - name: Run backend tests with coverage
         env:
@@ -221,9 +150,7 @@ jobs:
           DATABASE_NAME: QuanLySuKienSinhVien
           DATABASE_USER: root
           DATABASE_PASSWORD: root
-
           JWT_SECRET_KEY: ci-test-secret-key
-
           APP_NAME: QuanLySuKienSinhVienAI
           APP_ENV: testing
           DEBUG: "false"
@@ -234,14 +161,44 @@ jobs:
             --cov-report=term-missing \
             --cov-report=xml
 
-
-      # ------------------------------------------------------
-      # UPLOAD COVERAGE
-      # ------------------------------------------------------
-
       - name: Upload coverage report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: backend-coverage
           path: backend/coverage.xml
+
+
+  # ==========================================================
+  # DOCKER BUILD
+  # ==========================================================
+
+  docker-build:
+    name: Docker - Build Images
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build backend Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: false
+          tags: quanlysu-kien-backend:ci
+
+      - name: Build frontend Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: false
+          build-args: |
+            VITE_API_URL=http://localhost:8000
+          tags: quanlysu-kien-frontend:ci
