@@ -11,20 +11,27 @@ class Settings(BaseSettings):
     app_env: str = "development"
     debug: bool = True
 
+    # ==================== DATABASE ====================
     database_host: str = "localhost"
     database_port: int = 3306
     database_name: str = "QuanLySuKienSinhVien"
     database_user: str = "root"
     database_password: str = ""
+    database_ssl_enabled: bool = False
 
+    # ==================== JWT ====================
     jwt_secret_key: str = Field(default="change-this-secret-key")
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 120
 
-    backend_cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    # ==================== CORS ====================
+    backend_cors_origins: str = (
+        "http://localhost:5173,http://127.0.0.1:5173"
+    )
 
-    # ==================== SMTP (gui email) ====================
+    # ==================== SMTP ====================
     # De trong neu chua muon bat tinh nang gui email.
+    # Voi Gmail: dung App Password, khong dung mat khau dang nhap thong thuong.
     smtp_host: str = ""
     smtp_port: int = 587
     smtp_user: str = ""
@@ -32,12 +39,14 @@ class Settings(BaseSettings):
     smtp_from_name: str = "Quan ly Su kien Sinh vien"
     smtp_use_tls: bool = True
 
+    # ==================== SETTINGS CONFIG ====================
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
     )
 
+    # ==================== DATABASE URL ====================
     @property
     def database_url(self) -> str:
         return (
@@ -47,13 +56,23 @@ class Settings(BaseSettings):
             "?charset=utf8mb4"
         )
 
+    # ==================== CORS ORIGINS ====================
     @property
     def cors_origins(self) -> list[str]:
-        return [origin.strip() for origin in self.backend_cors_origins.split(",") if origin.strip()]
+        return [
+            origin.strip()
+            for origin in self.backend_cors_origins.split(",")
+            if origin.strip()
+        ]
 
+    # ==================== SMTP CHECK ====================
     @property
     def smtp_da_cau_hinh(self) -> bool:
-        return bool(self.smtp_host and self.smtp_user and self.smtp_password)
+        return bool(
+            self.smtp_host
+            and self.smtp_user
+            and self.smtp_password
+        )
 
 
 @lru_cache

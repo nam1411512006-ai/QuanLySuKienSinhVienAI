@@ -111,3 +111,9 @@ frontend/test-results/
 *.zip
 # Local database backups
 database/*_backup.sql
+
+# Cloud database credentials and certificates
+certs/
+
+# Local database backups
+database/backup_*.sql
