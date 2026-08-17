@@ -10,10 +10,12 @@ import {
 import "../../assets/css/sukien.css";
 
 const API_URL =
-    import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.DEV
+        ? "http://127.0.0.1:8000"
+        : "https://quanly-su-kien-backend.onrender.com");
 
 const getImageUrl = (anhBia) => {
-
     if (!anhBia) {
         return "https://placehold.co/600x400?text=No+Image";
     }
@@ -22,8 +24,11 @@ const getImageUrl = (anhBia) => {
         return anhBia;
     }
 
-    return `${API_URL}/uploads/event/${anhBia}`;
+    const cleanFileName = anhBia
+        .replace(/^\/+/, "")
+        .replace(/^uploads\/event\//, "");
 
+    return `${API_URL}/uploads/event/${cleanFileName}`;
 };
 
 const formatDate = (date) => {
