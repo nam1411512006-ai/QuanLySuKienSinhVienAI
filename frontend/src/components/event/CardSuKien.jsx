@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import {
     FaCalendarAlt,
     FaMapMarkerAlt,
@@ -9,39 +10,82 @@ import {
 
 import "../../assets/css/sukien.css";
 
-const API_URL =
-    import.meta.env.VITE_API_URL ||
-    (import.meta.env.DEV
-        ? "http://127.0.0.1:8000"
-        : "https://quanly-su-kien-backend.onrender.com");
+
+// ==========================================================
+// BACKEND PRODUCTION
+// ==========================================================
+
+const API_URL = "https://quanly-su-kien-backend.onrender.com";
+
+
+// ==========================================================
+// XỬ LÝ URL ẢNH SỰ KIỆN
+// ==========================================================
 
 const getImageUrl = (anhBia) => {
+
+    // Không có ảnh
     if (!anhBia) {
         return "https://placehold.co/600x400?text=No+Image";
     }
 
-    if (anhBia.startsWith("http")) {
+    // Nếu Backend đã trả URL đầy đủ
+    if (
+        anhBia.startsWith("http://") ||
+        anhBia.startsWith("https://")
+    ) {
         return anhBia;
     }
 
-    const cleanFileName = anhBia
-        .replace(/^\/+/, "")
-        .replace(/^uploads\/event\//, "");
+    // Chuyển về string và loại bỏ khoảng trắng
+    let fileName = String(anhBia).trim();
 
-    return `${API_URL}/uploads/event/${cleanFileName}`;
+    // Xóa "/" ở đầu
+    fileName = fileName.replace(/^\/+/, "");
+
+    // Nếu dữ liệu là:
+    // uploads/event/est2026.jpg
+    fileName = fileName.replace(
+        /^uploads\/event\//i,
+        ""
+    );
+
+    // Nếu dữ liệu là:
+    // event/est2026.jpg
+    fileName = fileName.replace(
+        /^event\//i,
+        ""
+    );
+
+    // URL cuối cùng
+    return `${API_URL}/uploads/event/${fileName}`;
 };
+
+
+// ==========================================================
+// FORMAT NGÀY
+// ==========================================================
 
 const formatDate = (date) => {
 
-    if (!date) return "";
+    if (!date) {
+        return "";
+    }
 
-    return new Date(date).toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-    });
-
+    return new Date(date).toLocaleDateString(
+        "vi-VN",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        }
+    );
 };
+
+
+// ==========================================================
+// COMPONENT CARD SỰ KIỆN
+// ==========================================================
 
 const CardSuKien = ({
     id,
@@ -58,10 +102,20 @@ const CardSuKien = ({
 
     const navigate = useNavigate();
 
+
+    // ======================================================
+    // SỐ CHỖ CÒN LẠI
+    // ======================================================
+
     const soChoConLai = Math.max(
         Number(soLuong) - Number(daDangKy),
         0
     );
+
+
+    // ======================================================
+    // TỶ LỆ ĐĂNG KÝ
+    // ======================================================
 
     const tiLeDangKy =
         Number(soLuong) > 0
@@ -70,6 +124,11 @@ const CardSuKien = ({
                 100
             )
             : 0;
+
+
+    // ======================================================
+    // CLASS TRẠNG THÁI
+    // ======================================================
 
     const layClassTrangThai = () => {
 
@@ -95,10 +154,13 @@ const CardSuKien = ({
 
             default:
                 return "trang-thai-mo";
-
         }
-
     };
+
+
+    // ======================================================
+    // TÊN TRẠNG THÁI
+    // ======================================================
 
     const hienThiTrangThai = () => {
 
@@ -124,45 +186,89 @@ const CardSuKien = ({
 
             default:
                 return trangThai || "Đang mở";
-
         }
-
     };
+
+
+    // ======================================================
+    // URL ẢNH
+    // ======================================================
+
+    const imageUrl = getImageUrl(anhBia);
+
+
+    // ======================================================
+    // RENDER
+    // ======================================================
 
     return (
 
         <div className="the-su-kien">
 
+
+            {/* ==================================================
+                ẢNH SỰ KIỆN
+            ================================================== */}
+
             <div className="anh-su-kien">
 
                 <img
-                    src={getImageUrl(anhBia)}
-                    alt={ten}
+                    src={imageUrl}
+                    alt={ten || "Ảnh sự kiện"}
+                    loading="lazy"
                     onError={(e) => {
-                        e.target.src =
+
+                        // Tránh vòng lặp onError
+                        e.currentTarget.onerror = null;
+
+                        e.currentTarget.src =
                             "https://placehold.co/600x400?text=No+Image";
                     }}
                 />
 
+
+                {/* Loại sự kiện */}
+
                 <span className="badge-loai">
-                    {loaiSuKien}
+                    {loaiSuKien || "Sự kiện"}
                 </span>
 
+
+                {/* Trạng thái */}
+
                 <span
-                    className={`trang-thai-su-kien ${layClassTrangThai()}`}
+                    className={
+                        `trang-thai-su-kien ${layClassTrangThai()}`
+                    }
                 >
                     {hienThiTrangThai()}
                 </span>
 
             </div>
 
+
+            {/* ==================================================
+                NỘI DUNG CARD
+            ================================================== */}
+
             <div className="noi-dung-the">
+
+
+                {/* Tên sự kiện */}
 
                 <h3 className="ten-su-kien">
                     {ten}
                 </h3>
 
+
+                {/* ==================================================
+                    THÔNG TIN NGÀY + ĐỊA ĐIỂM
+                ================================================== */}
+
                 <div className="thong-tin-su-kien">
+
+
+                    {/* Ngày */}
 
                     <div className="dong-thong-tin">
 
@@ -173,6 +279,9 @@ const CardSuKien = ({
                         </span>
 
                     </div>
+
+
+                    {/* Địa điểm */}
 
                     <div className="dong-thong-tin">
 
@@ -186,17 +295,29 @@ const CardSuKien = ({
 
                 </div>
 
+
+                {/* ==================================================
+                    SỐ LƯỢNG NGƯỜI ĐĂNG KÝ
+                ================================================== */}
+
                 <div className="so-luong">
 
                     <FaUsers />
 
                     <span>
-
-                        Còn <strong>{soChoConLai}</strong> / {soLuong} chỗ
-
+                        Còn{" "}
+                        <strong>
+                            {soChoConLai}
+                        </strong>{" "}
+                        / {soLuong} chỗ
                     </span>
 
                 </div>
+
+
+                {/* ==================================================
+                    THANH TIẾN TRÌNH
+                ================================================== */}
 
                 <div className="thanh-tien-trinh">
 
@@ -209,23 +330,34 @@ const CardSuKien = ({
 
                 </div>
 
+
+                {/* ==================================================
+                    ĐIỂM RÈN LUYỆN
+                ================================================== */}
+
                 <div className="diem-ren-luyen">
 
                     <FaStar />
 
                     <span>
-
-                        +{diem} điểm rèn luyện
-
+                        +{diem || 0} điểm rèn luyện
                     </span>
 
                 </div>
 
+
+                {/* ==================================================
+                    NÚT CHI TIẾT
+                ================================================== */}
+
                 <div className="chan-the">
 
                     <button
+                        type="button"
                         className="nut-chi-tiet"
-                        onClick={() => navigate(`/su-kien/${id}`)}
+                        onClick={() =>
+                            navigate(`/su-kien/${id}`)
+                        }
                     >
 
                         Xem chi tiết
@@ -239,9 +371,8 @@ const CardSuKien = ({
             </div>
 
         </div>
-
     );
-
 };
+
 
 export default CardSuKien;
