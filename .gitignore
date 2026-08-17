@@ -82,11 +82,15 @@ Thumbs.db
 
 
 # ==========================================================
-# UPLOADS / GENERATED FILES
+# UPLOADS
 # ==========================================================
 
-backend/uploads/*
-uploads/*
+# KHÔNG ignore backend/uploads/
+# Ảnh sự kiện cần được commit lên GitHub
+# để Docker copy vào Render.
+
+# backend/uploads/*
+# uploads/*
 
 
 # ==========================================================
@@ -105,15 +109,26 @@ uploads/*
 **/__pycache__/
 **/*.pyc
 
-# Test artifacts and archives
+
+# ==========================================================
+# TEST ARTIFACTS / ARCHIVES
+# ==========================================================
+
 backend/app.zip
 frontend/test-results/
 *.zip
-# Local database backups
+
+
+# ==========================================================
+# LOCAL DATABASE BACKUPS
+# ==========================================================
+
 database/*_backup.sql
-
-# Cloud database credentials and certificates
-certs/
-
-# Local database backups
 database/backup_*.sql
+
+
+# ==========================================================
+# CLOUD DATABASE CREDENTIALS / CERTIFICATES
+# ==========================================================
+
+certs/

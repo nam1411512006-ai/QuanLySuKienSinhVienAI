@@ -22,7 +22,7 @@ const getImageUrl = (anhBia) => {
         return anhBia;
     }
 
-    return `${API_URL}/uploads/${anhBia}`;
+    return `${API_URL}/uploads/event/${anhBia}`;
 
 };
 
