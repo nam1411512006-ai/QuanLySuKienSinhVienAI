@@ -330,8 +330,9 @@ jobs:
           # Push khi push code, chỉ build khi Pull Request
           push: ${{ github.event_name == 'push' }}
 
+          # API URL được truyền vào lúc Docker build
           build-args: |
-            VITE_API_URL=http://localhost:8000
+            VITE_API_URL=https://quanly-su-kien-backend.onrender.com
 
           tags: |
             ghcr.io/nam1411512006-ai/quanlysukiensinhvienai-frontend:latest
