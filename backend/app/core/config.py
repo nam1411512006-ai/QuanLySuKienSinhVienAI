@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     database_user: str = "root"
     database_password: str = ""
     database_ssl_enabled: bool = False
+    database_ssl_ca_path: str = "/etc/secrets/ca.pem"
 
     # ==================== JWT ====================
     jwt_secret_key: str = Field(default="change-this-secret-key")

@@ -12,7 +12,7 @@ connect_args = {}
 # ==================== DATABASE SSL ====================
 # Chi bat SSL khi DATABASE_SSL_ENABLED=true.
 if settings.database_ssl_enabled:
-    ca_path = Path(__file__).resolve().parents[3] / "certs" / "ca.pem"
+    ca_path = Path(settings.database_ssl_ca_path)
 
     connect_args = {
         "ssl": {
